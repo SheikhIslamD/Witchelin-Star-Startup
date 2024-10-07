@@ -29,6 +29,11 @@ public class Cameras : MonoBehaviour
         middle = InputSystem.actions.FindAction("Middle");
         next = InputSystem.actions.FindAction("Next");
         back = InputSystem.actions.FindAction("Back");
+
+        pantryCam.Priority = 0;
+        kitchenCam.Priority = 0;
+        diningCam.Priority = 0;
+        everythingCam.Priority = 10;
     }
 
     //all inputs correlate to function to activate a single cam and disable all others 
