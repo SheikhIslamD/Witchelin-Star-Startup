@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Customer", menuName = "Assets/Customer")]
+[CreateAssetMenu(fileName = "Customer", menuName = "Assets/Scritables/Customer")]
 public class Customer : ScriptableObject
 {
     [Header("Customer Identifiers")]
