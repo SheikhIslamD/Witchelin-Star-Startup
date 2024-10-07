@@ -15,7 +15,5 @@ MonoBehaviour:
   customerID: 0
   customerName: Jerry
   customerOrder: 
-  protein: 0
-  addOns: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   patienceMax: 0
   patienceRate: 0
