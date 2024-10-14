@@ -17,5 +17,4 @@ public class Dish : ScriptableObject
     public Sprite underCooked;
     public Sprite cooked;
     public Sprite overCooked;
-
 }
