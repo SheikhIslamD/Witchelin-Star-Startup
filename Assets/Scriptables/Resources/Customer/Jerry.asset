@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customerID: 0
   customerName: Jerry
-  customerOrder: 
-  patienceMax: 0
-  patienceRate: 0
+  customerSprite: {fileID: -2413806693520163455, guid: 80a647fc54bf9ae4cae74f580d3ca855, type: 3}
+  customerOrder: {fileID: 0}
+  patienceMax: 100
+  patienceRate: 0.05

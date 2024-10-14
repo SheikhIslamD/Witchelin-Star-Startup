@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf1548f6e685c941868861f35211d88, type: 3}
+  m_Name: Pizza
+  m_EditorClassIdentifier: 
+  dishName: Pizza
+  protein: Pork
+  cookMethod: Pan
+  cookMin: 1
+  cookMax: 2
+  cookState: 0
+  underCooked: {fileID: 7482667652216324306, guid: 531e659214bb3f042bee17a1688ba2bb, type: 3}
+  cooked: {fileID: 7482667652216324306, guid: 4fa715e18b085b04085e47d8e2fe6303, type: 3}
+  overCooked: {fileID: 7482667652216324306, guid: 531e659214bb3f042bee17a1688ba2bb, type: 3}
