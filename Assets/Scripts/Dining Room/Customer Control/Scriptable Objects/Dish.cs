@@ -7,7 +7,8 @@ public class Dish : ScriptableObject
 
     public Protein protein;
 
-    public string cookMethod;    
+    public string cookMethod;
+    public int dishState = 0;
 
     public Sprite underCooked;
     public Sprite cooked;

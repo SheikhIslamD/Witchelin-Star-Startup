@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Protein", menuName = "Scriptable Objects/Protein")]
+[CreateAssetMenu(fileName = "Protein", menuName = "Assets/Protein")]
 public class Protein : ScriptableObject
 {
     public string proteinName;

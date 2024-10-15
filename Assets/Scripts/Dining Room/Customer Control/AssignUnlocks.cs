@@ -14,7 +14,7 @@ public class AssignUnlocks : MonoBehaviour
         waveCustomers = new List<Customer>();
         unlockedDishes = new List<Dish>();
     }
-    void AssignWaveCustomerUnlocks(int wave)
+    public void AssignWaveCustomerUnlocks(int wave)
     {
         // Empty any Customers in List at start of wave
         waveCustomers.Clear();
