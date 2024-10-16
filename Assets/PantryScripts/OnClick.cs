@@ -15,5 +15,9 @@ public class OnClick : MonoBehaviour
     void TaskOnClick()
     {
         Debug.Log("You have clicked the button!");
+        
+            gameObject.TryGetComponent<DoorEnemy>(out DoorEnemy enemyComponent);
+        enemyComponent.TakeDamage(1);
+        
     }
 }
