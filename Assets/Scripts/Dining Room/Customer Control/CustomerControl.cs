@@ -8,7 +8,7 @@ public class CustomerControl : MonoBehaviour
     [Space(10)]
 
     [Header("Customer Order")]
-    Dish customerOrder;
+    Protein customerOrder;
     [Space(10)]
 
 
@@ -17,7 +17,7 @@ public class CustomerControl : MonoBehaviour
     float patienceRate;
 
     // Give this specific Gameobject data from the selected Scriptable Object
-    public void AssignData(Customer guest, Dish dish)
+    public void AssignData(Customer guest, Protein dish)
     {
         // Give this GO a Name
         customerName = guest.customerName;
@@ -39,7 +39,7 @@ public class CustomerControl : MonoBehaviour
     }
 
     // When Order is done, Review the Order
-    public void ReviewOrder(Dish given)
+    public void ReviewOrder(Ingredient given)
     {
         if (given != null)
         {
@@ -50,7 +50,7 @@ public class CustomerControl : MonoBehaviour
                 return;
             }
             
-            switch (given.dishState)
+            switch (given.cookState)
             {
                 case 0:
                     Debug.Log("This is under cooked!");
