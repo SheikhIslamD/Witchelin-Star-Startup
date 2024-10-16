@@ -9644,6 +9644,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739239983}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1755434065
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5090711014476917359, guid: 945b3259a94db4f42afc2f9781a84bbb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.153
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090711014476917359, guid: 945b3259a94db4f42afc2f9781a84bbb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.32458043
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090711014476917359, guid: 945b3259a94db4f42afc2f9781a84bbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.278
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090711014476917359, guid: 945b3259a94db4f42afc2f9781a84bbb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70794046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090711014476917359, guid: 945b3259a94db4f42afc2f9781a84bbb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090711014476917359, guid: 945b3259a94db4f42afc2f9781a84bbb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7062722
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090711014476917359, guid: 945b3259a94db4f42afc2f9781a84bbb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090711014476917359, guid: 945b3259a94db4f42afc2f9781a84bbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090711014476917359, guid: 945b3259a94db4f42afc2f9781a84bbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.865
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090711014476917359, guid: 945b3259a94db4f42afc2f9781a84bbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615432514293264597, guid: 945b3259a94db4f42afc2f9781a84bbb, type: 3}
+      propertyPath: m_Name
+      value: prefab_frystation
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 945b3259a94db4f42afc2f9781a84bbb, type: 3}
 --- !u!1 &1787387459
 GameObject:
   m_ObjectHideFlags: 0
@@ -11338,3 +11395,4 @@ SceneRoots:
   - {fileID: 1349157838}
   - {fileID: 550242214}
   - {fileID: 873999284}
+  - {fileID: 1755434065}
