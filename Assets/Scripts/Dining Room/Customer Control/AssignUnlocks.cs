@@ -5,14 +5,14 @@ public class AssignUnlocks : MonoBehaviour
 {
     [Header("List Control")]
     public List<Customer> waveCustomers;
-    public List<Dish> unlockedDishes;
+    public List<Protein> unlockedDishes;
     public CustomerDatabase c_Database;
-    public DishDatabase d_Database;
+    public ProteinDatabase p_Database;
 
     private void Start()
     {
         waveCustomers = new List<Customer>();
-        unlockedDishes = new List<Dish>();
+        unlockedDishes = new List<Protein>();
     }
     public void AssignWaveCustomerUnlocks(int wave)
     {
@@ -42,13 +42,13 @@ public class AssignUnlocks : MonoBehaviour
         switch (protein)
         {
             case "Slime": // Morning Rush
-                unlockedDishes.AddRange(d_Database.slimeDishes);
+                unlockedDishes.AddRange(p_Database.slimeDishes);
                 break;
             case "Cock": // Lunch Rush
-                unlockedDishes.AddRange(d_Database.cockDishes);
+                unlockedDishes.AddRange(p_Database.cockDishes);
                 break;
             case "Behold": // Dinner Rush
-                unlockedDishes.AddRange(d_Database.beholderDishes);
+                unlockedDishes.AddRange(p_Database.beholderDishes);
                 break;
             default:
                 break;

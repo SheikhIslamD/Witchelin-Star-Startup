@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6d15ba89916be459979179722337ae, type: 3}
-  m_Name: DishDatabase
+  m_Script: {fileID: 11500000, guid: b38585e91af744f4e84108477baa4665, type: 3}
+  m_Name: Cock
   m_EditorClassIdentifier: 
-  unlockedDishes:
-  - {fileID: 11400000, guid: cb387695f0f2a224ca2353dc0d4c6c9d, type: 2}
-  slimeDishes: []
-  cockDishes: []
-  beholderDishes: []
+  proteinName: Cock
+  cookMin: 1
+  cookMax: 2
+  cookState: 0
+  proteinSprite: {fileID: 0}

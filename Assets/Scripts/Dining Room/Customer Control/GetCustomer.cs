@@ -5,18 +5,18 @@ public class GetCustomer : MonoBehaviour
 {
     [Header("Customer Tracking")]
     int customerNumber = 0;
-    GameObject guest;
+    public GameObject guestPrefab;
 
     [Header("Selection Tracking")]
     Customer selectedCustomer;
-    Dish selectedDish;
+    Protein selectedDish;
 
     [Header("List Tracking")]
-    public AssignUnlocks au;
+    AssignUnlocks au;
 
     void Start()
     {
-        au = GameObject.FindGameObjectWithTag("CustomerSystem").GetComponent<AssignUnlocks>();
+        au = GetComponent<AssignUnlocks>();
     }
     void PickAssets()
     {
@@ -39,7 +39,7 @@ public class GetCustomer : MonoBehaviour
         // Pick assets from lists
         PickAssets();
         // Instantiate a customer GO
-        guest = Instantiate(guest);
+        GameObject guest = Instantiate(guestPrefab);
         // Get script from GO
         CustomerControl guestScript = guest.GetComponent<CustomerControl>();
         // Manage customer number
