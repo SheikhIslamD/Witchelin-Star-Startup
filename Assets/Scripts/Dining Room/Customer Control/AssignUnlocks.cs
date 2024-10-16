@@ -4,15 +4,17 @@ using UnityEngine;
 public class AssignUnlocks : MonoBehaviour
 {
     [Header("List Control")]
-    List<Customer> waveCustomers;
+    public List<Customer> waveCustomers;
+    public List<Dish> unlockedDishes;
     public CustomerDatabase c_Database;
     public DishDatabase d_Database;
 
     private void Start()
     {
         waveCustomers = new List<Customer>();
+        unlockedDishes = new List<Dish>();
     }
-    void AssignWaveCustomerUnlocks(int wave)
+    public void AssignWaveCustomerUnlocks(int wave)
     {
         // Empty any Customers in List at start of wave
         waveCustomers.Clear();
@@ -35,14 +37,21 @@ public class AssignUnlocks : MonoBehaviour
         }
     }
 
-    void PickAssets()
+    void AssignDishUnlocks(string protein)
     {
-        // Get random index from array
-        int index = Random.Range(0,waveCustomers.Count -1);
-        // Instantiate the customer model 
-        Customer customer = waveCustomers[index];
-        waveCustomers.RemoveAt(index);
-        waveCustomers.TrimExcess();
-        Dish dish = d_Database.unlockedDishes[Random.Range(0, d_Database.unlockedDishes.Count - 1)];
-    }
+        switch (protein)
+        {
+            case "Slime": // Morning Rush
+                unlockedDishes.AddRange(d_Database.slimeDishes);
+                break;
+            case "Cock": // Lunch Rush
+                unlockedDishes.AddRange(d_Database.cockDishes);
+                break;
+            case "Behold": // Dinner Rush
+                unlockedDishes.AddRange(d_Database.beholderDishes);
+                break;
+            default:
+                break;
+        }
+    }    
 }
