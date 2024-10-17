@@ -271,10 +271,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2583b739ef1a64c9caeb7752892398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveCustomers: []
+  waveCustomers:
+  - {fileID: 0}
   unlockedDishes: []
   c_Database: {fileID: 11400000, guid: c6b5c70668dcc1447ab79ae94cb8106d, type: 2}
   p_Database: {fileID: 11400000, guid: 82f010c45ed1b7647969f82c8d6cc01d, type: 2}
+  test: {fileID: 0}
 --- !u!4 &16139011
 Transform:
   m_ObjectHideFlags: 0
@@ -1626,7 +1628,7 @@ GameObject:
   m_Layer: 0
   m_Name: Counter
   m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

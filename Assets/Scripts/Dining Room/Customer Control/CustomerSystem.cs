@@ -38,6 +38,7 @@ public class CustomerSystem : MonoBehaviour
 
     IEnumerator WaveSpawn(int custCount)
     {
+        Debug.Log("CoRoutine Started. Will loop: " + custCount + " time(s)");
         for (int i = 0; i < custCount; i++)
         {
             gc.spawnCustomer();

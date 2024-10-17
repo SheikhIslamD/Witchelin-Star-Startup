@@ -18,6 +18,7 @@ public class DiningManager : MonoBehaviour
 
     [Header("Get Scripts")]
     CustomerSystem cs;
+    AssignUnlocks au;
     GetCustomer gc;
 
     //Managae Locations
@@ -26,11 +27,13 @@ public class DiningManager : MonoBehaviour
     void Start()
     {
         cs = GetComponent<CustomerSystem>();
+        au = GetComponent<AssignUnlocks>();
         gc = GetComponent<GetCustomer>();
 
         line = new LinkedList<GameObject>();
 
         // *NEEDS TO BE ADDED* Set variable to begin wave spawner
+        au.AssignDishUnlocks("Cock");
         cs.StartNextWave();
     }
 
