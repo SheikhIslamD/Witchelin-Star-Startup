@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class Cooking : MonoBehaviour
+/*public class Cooking : MonoBehaviour
 {
     public TextMeshProUGUI cookingCountdownText;
     public bool currentlyCooking; //if stove is running
@@ -122,3 +122,4 @@ public class Cooking : MonoBehaviour
         }
     }
 }
+*/

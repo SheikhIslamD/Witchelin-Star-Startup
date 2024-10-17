@@ -2,45 +2,45 @@ using UnityEngine;
 
 public class IngredientButton : MonoBehaviour
 {
-    //should this be handsFull or holdingIngredient?
-    public bool holdingThisIngredient;
-    public string whichIngredient;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    //listing all ingredients as an item array for now, assign these in inspector for now
+    [Header("Assign these in inspector for now")]
+    public GameObject[] ingredientOptions;
+    //Assign a different ingredient's number to each button
+    [Header("Assign on each button uniquely")]
+    public int ingredientNumber;
 
     // Update is called once per frame
-    public void GrabIngredient()
+    public void GrabIngredient(int ingredientNumber)
     {
-        if (!Cooking.instance.handsFull)
+        if (!PlayerHands.instance.handsFull)
         {
-            if (!holdingThisIngredient)
-            {
-                Cooking.instance.handsImage.color = Color.cyan;
-                Cooking.instance.handsHolding = whichIngredient;
-                Cooking.instance.handsFull = true;
-                holdingThisIngredient = true;
+                GameObject item = Instantiate(ingredientOptions[ingredientNumber]);
+                PlayerHands.instance.PickUp(item);
+                PlayerHands.instance.handsFull = true;
 
-                Debug.Log("Grabbed this ingredient: " + whichIngredient);
-            }
-            else
-            {
-                Debug.Log("Already holding something: " + Cooking.instance.handsHolding);
-            }
+                Debug.Log("Grabbed this ingredient: " + item.name);
         }
         else
         {
-            if (Cooking.instance.handsHolding == whichIngredient)
-            {
-                Cooking.instance.handsImage.color = Color.clear;
-                Cooking.instance.handsHolding = "None";
-                Cooking.instance.handsFull = false;
-                holdingThisIngredient = false;
+            ReturnIngredient();
+        }
+    }
 
-                Debug.Log("Ingredient put away");
-            }
+    public void ReturnIngredient()
+    {
+        //this looks long but it's basically comparing the name of the ingredient in the player's hand to see if it matches this
+        //has to do a getcomponent on the Ingredient script on both objects and read the IngredientName on it to compare with
+        if (PlayerHands.instance.heldItem.GetComponent<Ingredient>().IngredientName == ingredientOptions[ingredientNumber].GetComponent<Ingredient>().IngredientName && PlayerHands.instance.heldItem.GetComponent<Ingredient>().cookState == 0)
+        {
+            //need to delete the item and then clear the related variables by using the PutDown function
+            Destroy(PlayerHands.instance.heldItem);
+            PlayerHands.instance.PutDown();
+
+            Debug.Log("Ingredient put back");
+        }
+        else
+        {
+            Debug.Log("Can't do that! Put down the " + PlayerHands.instance.heldItem.name + " first!");
         }
     }
 }
