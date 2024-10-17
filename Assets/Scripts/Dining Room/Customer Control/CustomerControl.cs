@@ -8,7 +8,7 @@ public class CustomerControl : MonoBehaviour
     [Space(10)]
 
     [Header("Customer Order")]
-    Protein customerOrder;
+    public Protein customerOrder;
     [Space(10)]
 
 
@@ -30,12 +30,13 @@ public class CustomerControl : MonoBehaviour
 
         // Assign this GO a name
         customerOrder = dish;
+        
     }
 
     // When Interacted with, provide the Player with an order
     public void PlaceOrder()
     {
-        Debug.Log("Hi, I'd like to order " + customerOrder.dishName);
+        Debug.Log("Hi, I'd like to order " + customerOrder);
     }
 
     // When Order is done, Review the Order

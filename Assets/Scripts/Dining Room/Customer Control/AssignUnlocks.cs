@@ -16,9 +16,11 @@ public class AssignUnlocks : MonoBehaviour
     }
     public void AssignWaveCustomerUnlocks(int wave)
     {
+        Debug.Log("Got to Assign");
         // Empty any Customers in List at start of wave
         waveCustomers.Clear();
         // Add the Anytime Customers
+        Debug.Log("Adding Customers");
         waveCustomers.AddRange(c_Database.anytimeCustomers);
         // Based on Time of Day, add other customers
         switch (wave)
@@ -35,6 +37,7 @@ public class AssignUnlocks : MonoBehaviour
             default:
                 break;
         }
+        Debug.Log("Avaliable Customer Count: " + waveCustomers.Count);
     }
 
     void AssignDishUnlocks(string protein)

@@ -16,8 +16,8 @@ public class Protein : ScriptableObject
 
     [Header("Dish Information")]
     public string dishName;
+    public int cookMethod;
+    public Sprite dishSprite;
 
-    public Sprite underCooked;
-    public Sprite cooked;
-    public Sprite overCooked;
+    public Sprite[] resultSprites;
 }
