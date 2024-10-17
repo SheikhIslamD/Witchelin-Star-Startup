@@ -20,14 +20,8 @@ public class TicketManager : MonoBehaviour
     {
         
     }
-
-    void TakeOrder()
+    public void CreateTicket(CustomerControl guestInfo)
     {
-
-    }
-    public void CreateTicket(GameObject guest)
-    {
-        CustomerControl guestInfo = guest.GetComponent<CustomerControl>();
         GameObject ticket = Instantiate(ticketPrefab);
         TicketControl tc = ticket.GetComponent<TicketControl>();
 

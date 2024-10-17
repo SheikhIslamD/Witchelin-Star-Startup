@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine.UI;
 
 public class DiningManager : MonoBehaviour
 {
     [Header("Line Management")]
     LinkedList<GameObject> line;
-    GameObject counter;
+    public GameObject counter;
     GameObject[] tables = new GameObject[10];
 
     public Transform[] linePositions = new Transform[10];
@@ -20,6 +22,10 @@ public class DiningManager : MonoBehaviour
     CustomerSystem cs;
     AssignUnlocks au;
     GetCustomer gc;
+
+    [Header("Canvas")]
+    public Canvas canvas;
+    public TextMeshProUGUI guestName;
 
     //Managae Locations
     //Counter Controlls
@@ -83,10 +89,13 @@ public class DiningManager : MonoBehaviour
         if (counter != null)
         {
             // Enable UI
+            guestName.text = counter.name;
+            canvas.enabled = true;
         }
         else
         {
             //Disable UI
+            canvas.enabled = false;
         }
     }
 }

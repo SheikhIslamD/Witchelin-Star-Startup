@@ -17,9 +17,6 @@ public class CustomerSystem : MonoBehaviour
         gc = GetComponent<GetCustomer>();
 
         waves = Resources.LoadAll<Wave>("Wave");
-
-        Debug.Log("au: " + au + "\ngc: " + gc);
-        Debug.Log("waves: " + waves.Length);
     }
 
     public void StartNextWave()

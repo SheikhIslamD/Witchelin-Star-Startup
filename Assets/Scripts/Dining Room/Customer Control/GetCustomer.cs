@@ -53,6 +53,7 @@ public class GetCustomer : MonoBehaviour
         customerNumber++;
         // Assign the data to the GO
         guestScript.AssignData(selectedCustomer, selectedDish);
+        guest.name = selectedCustomer.name;
         // Put them in line
         dm.AddToLine(guest);
     }
