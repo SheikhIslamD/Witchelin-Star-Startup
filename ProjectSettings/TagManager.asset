@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - CustomerSystem
+  - DiningRoom
+  - TicketManager
   layers:
   - Default
   - TransparentFX

@@ -4,11 +4,10 @@ public class CustomerControl : MonoBehaviour
 {
     [Header("Customer Identifiers")]
     public int customerNumber;
-    public string customerName;
     [Space(10)]
 
     [Header("Customer Order")]
-    Protein customerOrder;
+    public Protein customerOrder;
     [Space(10)]
 
 
@@ -19,8 +18,6 @@ public class CustomerControl : MonoBehaviour
     // Give this specific Gameobject data from the selected Scriptable Object
     public void AssignData(Customer guest, Protein dish)
     {
-        // Give this GO a Name
-        customerName = guest.customerName;
         // Set this GO patience values
         patienceMax = guest.patienceMax;
         patienceRate = guest.patienceRate;
@@ -30,12 +27,14 @@ public class CustomerControl : MonoBehaviour
 
         // Assign this GO a name
         customerOrder = dish;
+        
     }
 
     // When Interacted with, provide the Player with an order
-    public void PlaceOrder()
+    public string PlaceOrder()
     {
-        Debug.Log("Hi, I'd like to order " + customerOrder.dishName);
+        Debug.Log("Hi, I'd like to order " + customerOrder);
+        return("Hi, I'd like to order " + customerOrder);
     }
 
     // When Order is done, Review the Order

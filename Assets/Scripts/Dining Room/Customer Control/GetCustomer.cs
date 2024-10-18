@@ -13,10 +13,12 @@ public class GetCustomer : MonoBehaviour
 
     [Header("List Tracking")]
     AssignUnlocks au;
+    DiningManager dm;
 
     void Start()
     {
         au = GetComponent<AssignUnlocks>();
+        dm = GetComponent<DiningManager>();
     }
     void PickAssets()
     {
@@ -25,17 +27,21 @@ public class GetCustomer : MonoBehaviour
         selectedDish = null;
 
         // Get random index from array
-        int index = Random.Range(0, au.waveCustomers.Count - 1);
+        int index = Random.Range(0, au.waveCustomers.Count);
+        Debug.Log("Selected index: " + index);
         // Assign a Customer
         selectedCustomer = au.waveCustomers[index];
+        Debug.Log("Selected customer was: " + selectedCustomer);
         // Manage List to avoid spawning dupe in this wave
         au.waveCustomers.RemoveAt(index);
         au.waveCustomers.TrimExcess();
+        Debug.Log("Adjusted length of possible customers: " +  au.waveCustomers.Count);
         // Assign a dish
-        selectedDish = au.unlockedDishes[Random.Range(0, au.unlockedDishes.Count - 1)];
+        selectedDish = au.unlockedDishes[Random.Range(0, au.unlockedDishes.Count)];
     }
     public void spawnCustomer()
     {
+        Debug.Log("Call Spawner");
         // Pick assets from lists
         PickAssets();
         // Instantiate a customer GO
@@ -47,6 +53,9 @@ public class GetCustomer : MonoBehaviour
         customerNumber++;
         // Assign the data to the GO
         guestScript.AssignData(selectedCustomer, selectedDish);
+        guest.name = selectedCustomer.name;
+        // Put them in line
+        dm.AddToLine(guest);
     }
     
 }

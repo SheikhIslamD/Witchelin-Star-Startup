@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AssignUnlocks : MonoBehaviour
@@ -8,6 +9,8 @@ public class AssignUnlocks : MonoBehaviour
     public List<Protein> unlockedDishes;
     public CustomerDatabase c_Database;
     public ProteinDatabase p_Database;
+
+    public Customer test;
 
     private void Start()
     {
@@ -19,39 +22,55 @@ public class AssignUnlocks : MonoBehaviour
         // Empty any Customers in List at start of wave
         waveCustomers.Clear();
         // Add the Anytime Customers
+        Debug.Log("Adding Customers");
         waveCustomers.AddRange(c_Database.anytimeCustomers);
+
+        test = waveCustomers[0];
+        Debug.Log("Hi I'm test: " + test);
         // Based on Time of Day, add other customers
         switch (wave)
         {
             case 0: // Morning Rush
-                waveCustomers.AddRange(c_Database.morningCustomers);
+                if (c_Database.morningCustomers.Count > 0)
+                {
+                    waveCustomers.AddRange(c_Database.morningCustomers);
+                }                
                 break;
             case 1: // Lunch Rush
-                waveCustomers.AddRange(c_Database.lunchCustomers);
+                if (c_Database.lunchCustomers.Count > 0)
+                {
+                    waveCustomers.AddRange(c_Database.lunchCustomers);
+                }
                 break;
             case 2: // Dinner Rush
-                waveCustomers.AddRange(c_Database.dinnerCustomers);
+                if (c_Database.dinnerCustomers.Count > 0)
+                {
+                    waveCustomers.AddRange(c_Database.dinnerCustomers);
+                }
                 break;
             default:
                 break;
         }
+        Debug.Log("Avaliable Customer Count: " + waveCustomers.Count);
     }
 
-    void AssignDishUnlocks(string protein)
+    public void AssignDishUnlocks(string protein)
     {
         switch (protein)
         {
-            case "Slime": // Morning Rush
+            case "Slime":
                 unlockedDishes.AddRange(p_Database.slimeDishes);
                 break;
-            case "Cock": // Lunch Rush
+            case "Cock":
                 unlockedDishes.AddRange(p_Database.cockDishes);
                 break;
-            case "Behold": // Dinner Rush
+            case "Behold":
                 unlockedDishes.AddRange(p_Database.beholderDishes);
                 break;
             default:
                 break;
         }
+
+        Debug.Log("Added " + protein + "Dishes. New dish list size = " +  unlockedDishes.Count);
     }    
 }
