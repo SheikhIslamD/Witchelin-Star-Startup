@@ -14,16 +14,11 @@ public class TicketManager : MonoBehaviour
     {
         tickets = new List<GameObject>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
         
-    }
     public void CreateTicket(CustomerControl guestInfo)
     {
         GameObject ticket = Instantiate(ticketPrefab);
-        TicketControl tc = ticket.GetComponent<TicketControl>();
+        TicketControl tc = ticket.GetComponent<TicketControl>();        
 
         tc.ticketNumber = guestInfo.customerNumber;
         tc.orderSprite = guestInfo.customerOrder.dishSprite;

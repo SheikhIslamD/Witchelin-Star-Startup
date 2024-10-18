@@ -59,7 +59,7 @@ public class DiningManager : MonoBehaviour
     }
     void LineManager()
     {
-        if (line.Last != null)
+        if (counter == null && line.Last != null)
         {
             // Move guest waiting to counter in world space
             line.Last.Value.transform.position = counterPosition.position;
@@ -97,5 +97,19 @@ public class DiningManager : MonoBehaviour
             //Disable UI
             canvas.enabled = false;
         }
+    }
+
+    public void SitDown()
+    {
+        for (int i = 0; i < tables.Length; i++)
+        {
+            if (tables[i] == null)
+            {
+                tables[i] = counter;
+                tables[i].transform.position = tablePositions[i].position;
+                break;
+            }
+        }
+        counter = null;
     }
 }

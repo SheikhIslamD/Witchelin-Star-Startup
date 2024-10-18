@@ -15,4 +15,5 @@ MonoBehaviour:
   slimeDishes: []
   cockDishes:
   - {fileID: 11400000, guid: 74e4919bca26fcc438c98981673c1e65, type: 2}
+  - {fileID: 11400000, guid: 58a3fa4547203e54bb073478d386ae45, type: 2}
   beholderDishes: []
