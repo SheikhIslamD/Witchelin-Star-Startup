@@ -6,25 +6,28 @@ public class TicketControl : MonoBehaviour
     public int ticketNumber;
     public Sprite orderSprite;
 
-    GameObject childSprite;
-    GameObject childNumber;
+    SpriteRenderer childSR;
+    TextMeshPro childText;
 
-    void Start()
+    void Awake()
     {
-        childSprite = transform.GetChild(0).gameObject;
-        childNumber = transform.GetChild(1).gameObject;
+        childSR = transform.GetComponentInChildren<SpriteRenderer>();
+        childText = transform.GetComponentInChildren<TextMeshPro>();
+
+        Debug.Log("Ticket Sprite object: " + childSR + "\nTicket Number object: " + childText);
     }
 
     public void AssignValues()
     {        
-        childSprite.GetComponent<SpriteRenderer>().sprite = orderSprite;
+        childSR.sprite = orderSprite;
+
         if (ticketNumber >= 9)
         {
-            childNumber.GetComponent<TextMeshProUGUI>().text = ticketNumber + 1.ToString();
+            childText.text = (ticketNumber + 1).ToString();
         }
         else
         {
-            childNumber.GetComponent<TextMeshProUGUI>().text = "0" + ticketNumber + 1.ToString();
+            childText.text = "0" + (ticketNumber + 1).ToString();
         }
     }
 }

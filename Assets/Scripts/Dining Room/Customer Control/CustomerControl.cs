@@ -33,8 +33,8 @@ public class CustomerControl : MonoBehaviour
     // When Interacted with, provide the Player with an order
     public string PlaceOrder()
     {
-        Debug.Log("Hi, I'd like to order " + customerOrder);
-        return("Hi, I'd like to order " + customerOrder);
+        Debug.Log("Hi, I'd like to order - " + customerOrder.dishName);
+        return("Hi, I'd like to order - " + customerOrder.dishName);
     }
 
     // When Order is done, Review the Order
