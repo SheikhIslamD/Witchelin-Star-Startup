@@ -761,6 +761,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 405906076440727650, guid: 4697e5ee6771be24882effb8d16a7bdf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -1134714066672644336, guid: 5cb44b91b72bab2449218d10d35c1553, type: 3}
+    - target: {fileID: 1189455042258477626, guid: 4697e5ee6771be24882effb8d16a7bdf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -1134714066672644336, guid: 5cb44b91b72bab2449218d10d35c1553, type: 3}
+    - target: {fileID: 2325938010342028189, guid: 4697e5ee6771be24882effb8d16a7bdf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -1134714066672644336, guid: 5cb44b91b72bab2449218d10d35c1553, type: 3}
     - target: {fileID: 3268512757232236625, guid: 4697e5ee6771be24882effb8d16a7bdf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -805,6 +817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pantry
       objectReference: {fileID: 0}
+    - target: {fileID: 9077282412871227957, guid: 4697e5ee6771be24882effb8d16a7bdf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -1134714066672644336, guid: 5cb44b91b72bab2449218d10d35c1553, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
