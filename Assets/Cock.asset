@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38585e91af744f4e84108477baa4665, type: 3}
+  m_Name: Cock
+  m_EditorClassIdentifier: 
+  IngredientName: Cock
+  cookMin: 10
+  cookMax: 20
+  cookState: 0
+  proteinSprite: {fileID: 21300000, guid: 2e377eef196ccf147a02f4713c703109, type: 3}
+  dishName: 
+  cookMethod: 0
+  dishSprite: {fileID: 0}
+  resultSprites:
+  - {fileID: 21300000, guid: 2e377eef196ccf147a02f4713c703109, type: 3}
+  - {fileID: 21300000, guid: 718a8f7b962b8a24a91d193933b51862, type: 3}
+  - {fileID: 21300000, guid: e334c9616ede3d946a83970e7a0e021c, type: 3}
