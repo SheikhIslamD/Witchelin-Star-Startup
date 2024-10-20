@@ -88,6 +88,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3400873192881367718, guid: ab1010a8ccee6e14b82014a9964f20c5, type: 3}
+      propertyPath: cookMax
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400873192881367718, guid: ab1010a8ccee6e14b82014a9964f20c5, type: 3}
+      propertyPath: cookMin
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400873192881367718, guid: ab1010a8ccee6e14b82014a9964f20c5, type: 3}
+      propertyPath: protein
+      value: 
+      objectReference: {fileID: 11400000, guid: 295abd991749bd0469b35fef55f3bc3a, type: 2}
     - target: {fileID: 5523217333642034777, guid: ab1010a8ccee6e14b82014a9964f20c5, type: 3}
       propertyPath: m_Name
       value: Steak Variant
