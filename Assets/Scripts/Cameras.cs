@@ -10,10 +10,10 @@ public class Cameras : MonoBehaviour
     [SerializeField] private CinemachineCamera diningCam;
     [SerializeField] private CinemachineCamera everythingCam;
     //HUD canvases of each area
-    [SerializeField] private Canvas pantryCanvas;
-    [SerializeField] private Canvas kitchenCanvas;
-    [SerializeField] private Canvas diningCanvas;
-    [SerializeField] private Canvas everythingCanvas;
+    [SerializeField] private CanvasGroup pantryCanvas;
+    [SerializeField] private CanvasGroup kitchenCanvas;
+    [SerializeField] private CanvasGroup diningCanvas;
+    [SerializeField] private CanvasGroup everythingCanvas;
     //input control schemes
     InputAction previous;
     InputAction middle;
@@ -40,10 +40,10 @@ public class Cameras : MonoBehaviour
         diningCam.Priority = 0;
         everythingCam.Priority = 0;
 
-        pantryCanvas.gameObject.SetActive(false);
-        kitchenCanvas.gameObject.SetActive(false);
-        diningCanvas.gameObject.SetActive(false);
-        everythingCanvas.gameObject.SetActive(false);
+        CanvasGroupOff(pantryCanvas);
+        CanvasGroupOff(kitchenCanvas);
+        CanvasGroupOff(diningCanvas);
+        CanvasGroupOff(everythingCanvas);
 
         //start with everything view
         EverythingCam();
@@ -105,12 +105,26 @@ public class Cameras : MonoBehaviour
     }
 
     //this pops up the correct area HUD while disabling the others
-    public void CanvasSwap(Canvas whichCanvas)
+    public void CanvasSwap(CanvasGroup whichCanvas)
     {
-        pantryCanvas.gameObject.SetActive(false);
-        kitchenCanvas.gameObject.SetActive(false);
-        diningCanvas.gameObject.SetActive(false);
-        everythingCanvas.gameObject.SetActive(false);
-        whichCanvas.gameObject.SetActive(true);
+        CanvasGroupOff(pantryCanvas);
+        CanvasGroupOff(kitchenCanvas);
+        CanvasGroupOff(diningCanvas);
+        CanvasGroupOff(everythingCanvas);
+        CanvasGroupOn(whichCanvas);
+    }
+
+    public void CanvasGroupOff(CanvasGroup canvasGroup)
+    {
+        canvasGroup.alpha = 0;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+    }
+
+    public void CanvasGroupOn(CanvasGroup canvasGroup)
+    {
+        canvasGroup.alpha = 1;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
     }
 }
