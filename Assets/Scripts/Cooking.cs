@@ -119,10 +119,13 @@ public class Cooking : MonoBehaviour
 
     public void PickupIngredient()
     {
-        StopCooking();
-        PlayerHands.instance.PickUp(whatsCooking);
-        whatsCooking = null;
-        Pickup.SetActive(false);
+        if (!PlayerHands.instance.handsFull)
+        {
+            StopCooking();
+            PlayerHands.instance.PickUp(whatsCooking);
+            whatsCooking = null;
+            Pickup.SetActive(false);
+        }
     }
 
     public void Plating()
