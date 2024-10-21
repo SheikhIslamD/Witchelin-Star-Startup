@@ -23,7 +23,7 @@ public class Menus : MonoBehaviour
 
     void Awake()
     {
-        pauseMenu.enabled = false;
+        credits.enabled = false;
         pauseKey = InputSystem.actions.FindAction("Pause");
         PauseGame();
     }
