@@ -40,10 +40,10 @@ public class Cameras : MonoBehaviour
         diningCam.Priority = 0;
         everythingCam.Priority = 0;
 
-        pantryCanvas.enabled = false;
-        kitchenCanvas.enabled = false;
-        diningCanvas.enabled = false;
-        everythingCanvas.enabled = false;
+        pantryCanvas.gameObject.SetActive(false);
+        kitchenCanvas.gameObject.SetActive(false);
+        diningCanvas.gameObject.SetActive(false);
+        everythingCanvas.gameObject.SetActive(false);
 
         //start with everything view
         EverythingCam();
@@ -107,10 +107,10 @@ public class Cameras : MonoBehaviour
     //this pops up the correct area HUD while disabling the others
     public void CanvasSwap(Canvas whichCanvas)
     {
-        pantryCanvas.enabled = false;
-        kitchenCanvas.enabled = false;
-        diningCanvas.enabled = false;
-        everythingCanvas.enabled = false;
-        whichCanvas.enabled = true;
+        pantryCanvas.gameObject.SetActive(false);
+        kitchenCanvas.gameObject.SetActive(false);
+        diningCanvas.gameObject.SetActive(false);
+        everythingCanvas.gameObject.SetActive(false);
+        whichCanvas.gameObject.SetActive(true);
     }
 }
