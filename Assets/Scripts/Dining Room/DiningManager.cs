@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
-using UnityEngine.UI;
 
 public class DiningManager : MonoBehaviour
 {
@@ -16,12 +15,11 @@ public class DiningManager : MonoBehaviour
 
     int waiting = 0;
     int lineOrder = 0;
-    [Space(10)]
 
     [Header("Get Scripts")]
-    CustomerSystem cs;
-    AssignUnlocks au;
-    GetCustomer gc;
+    [SerializeField] CustomerSystem cs;
+    [SerializeField] AssignUnlocks au;
+    [SerializeField]  GetCustomer gc;
 
     [Header("Canvas")]
     public Canvas canvas;
@@ -32,10 +30,6 @@ public class DiningManager : MonoBehaviour
     //Ticket Management
     void Start()
     {
-        cs = GetComponent<CustomerSystem>();
-        au = GetComponent<AssignUnlocks>();
-        gc = GetComponent<GetCustomer>();
-
         line = new LinkedList<GameObject>();
 
         // *NEEDS TO BE ADDED* Set variable to begin wave spawner

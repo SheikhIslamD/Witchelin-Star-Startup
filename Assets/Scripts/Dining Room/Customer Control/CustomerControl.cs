@@ -15,6 +15,15 @@ public class CustomerControl : MonoBehaviour
     float patienceMax;
     float patienceRate;
 
+    [Header("Script Managers")]
+    DiningManager dm;
+    TicketManager tm;
+
+    private void Start()
+    {
+        dm = GameObject.FindGameObjectWithTag("DiningRoom").GetComponent<DiningManager>();
+        tm = GameObject.FindGameObjectWithTag("TicketManager").GetComponent<TicketManager>(); 
+    }
     // Give this specific Gameobject data from the selected Scriptable Object
     public void AssignData(Customer guest, Protein dish)
     {
@@ -26,8 +35,7 @@ public class CustomerControl : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = guest.customerSprite;
 
         // Assign this GO a name
-        customerOrder = dish;
-        
+        customerOrder = dish;        
     }
 
     // When Interacted with, provide the Player with an order

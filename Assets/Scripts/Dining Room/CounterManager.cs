@@ -4,17 +4,14 @@ using System.Collections;
 
 public class CounterManager : MonoBehaviour
 {
-    TicketManager tm;
-    DiningManager dm;
+    [Header("Script Gets")]
+    [SerializeField] TicketManager tm;
+    [SerializeField] DiningManager dm;
 
-    public GameObject orderBox;
-    public TextMeshProUGUI orderDescription;
+    [Header("Canvas Gets")]
+    [SerializeField] GameObject orderBox;
+    [SerializeField] TextMeshProUGUI orderDescription;
 
-    void Start()
-    {
-        tm = GameObject.FindWithTag("TicketManager").GetComponent<TicketManager>();
-        dm = GameObject.FindWithTag("DiningRoom").GetComponent<DiningManager>();
-    }
     public void TakeOrder()
     {
         orderBox.SetActive(true);

@@ -340,6 +340,9 @@ MonoBehaviour:
   - {fileID: 393520276}
   - {fileID: 1345120387}
   counterPosition: {fileID: 720076917}
+  cs: {fileID: 16139009}
+  au: {fileID: 16139010}
+  gc: {fileID: 16139012}
   canvas: {fileID: 1141713013}
   guestName: {fileID: 108648311}
 --- !u!1 &51111429
@@ -1979,7 +1982,7 @@ Transform:
   m_GameObject: {fileID: 815818256}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15437408, y: -0, z: -0, w: 0.9880125}
-  m_LocalPosition: {x: 7.61, y: 5.79, z: -10.68}
+  m_LocalPosition: {x: 7.61, y: 6.22, z: -10.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5173,6 +5176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fe7ef5d88134e4cabc0582e8ce8ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tm: {fileID: 1172022549}
+  dm: {fileID: 16139013}
   orderBox: {fileID: 272140286}
   orderDescription: {fileID: 1031822781}
 --- !u!1 &1820430104
