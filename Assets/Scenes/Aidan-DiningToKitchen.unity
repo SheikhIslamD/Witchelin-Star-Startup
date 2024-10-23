@@ -31779,16 +31779,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   spots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1900553037}
+  - {fileID: 684800607}
+  - {fileID: 931239843}
+  - {fileID: 1814639466}
+  - {fileID: 2316860}
+  - {fileID: 2053983124}
+  - {fileID: 991339076}
+  - {fileID: 1972607822}
+  - {fileID: 874881567}
+  - {fileID: 2014940267}
   ticketPrefab: {fileID: 7209169306510028649, guid: 6cf6f328c5fac024286e11a80aba69ba, type: 3}
 --- !u!4 &1459130745
 Transform:
@@ -33945,7 +33945,7 @@ GameObject:
   - component: {fileID: 1770725041}
   m_Layer: 5
   m_Name: TicketCanvas
-  m_TagString: Untagged
+  m_TagString: TicketCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
