@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Steve
   m_EditorClassIdentifier: 
   customerName: Steve
-  customerSprite: {fileID: 7482667652216324306, guid: 4fa715e18b085b04085e47d8e2fe6303, type: 3}
+  customerSprite: {fileID: 495464396, guid: f663868f842864f47b5a7679ddef0544, type: 3}
   patienceMax: 100
-  patienceRate: 0.05
+  patienceRate: 0.8

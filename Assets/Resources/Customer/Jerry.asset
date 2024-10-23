@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Jerry
   m_EditorClassIdentifier: 
   customerName: Jerry
-  customerSprite: {fileID: -2413806693520163455, guid: 80a647fc54bf9ae4cae74f580d3ca855, type: 3}
+  customerSprite: {fileID: 178396429, guid: f663868f842864f47b5a7679ddef0544, type: 3}
   patienceMax: 100
-  patienceRate: 0.03
+  patienceRate: 1
