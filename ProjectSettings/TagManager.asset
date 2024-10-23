@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DiningRoom
   - TicketManager
+  - TicketCanvas
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class TicketControl : MonoBehaviour
@@ -6,13 +7,13 @@ public class TicketControl : MonoBehaviour
     public int ticketNumber;
     public Sprite orderSprite;
 
-    SpriteRenderer childSR;
-    TextMeshPro childText;
+    Image childSR;
+    TextMeshProUGUI childText;
 
     void Awake()
     {
-        childSR = transform.GetComponentInChildren<SpriteRenderer>();
-        childText = transform.GetComponentInChildren<TextMeshPro>();
+        childSR = transform.GetChild(0).GetComponentInChildren<Image>();
+        childText = transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>();
 
         Debug.Log("Ticket Sprite object: " + childSR + "\nTicket Number object: " + childText);
     }

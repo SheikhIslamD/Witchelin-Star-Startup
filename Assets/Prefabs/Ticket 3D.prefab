@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 6740771058583593882}
   - component: {fileID: 2398407245966291688}
   m_Layer: 0
-  m_Name: Ticket
+  m_Name: Ticket 3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

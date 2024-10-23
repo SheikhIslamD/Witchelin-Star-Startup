@@ -7,8 +7,8 @@ public class AssignUnlocks : MonoBehaviour
     [Header("List Control")]
     public List<Customer> waveCustomers;
     public List<Protein> unlockedDishes;
-    public CustomerDatabase c_Database;
-    public ProteinDatabase p_Database;
+    [SerializeField] CustomerDatabase c_Database;
+    [SerializeField] ProteinDatabase p_Database;
 
     public Customer test;
 

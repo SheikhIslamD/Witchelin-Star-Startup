@@ -11,7 +11,7 @@ public class TicketManager : MonoBehaviour
     int ticketCount = 0;
     public void CreateTicket(CustomerControl guestInfo)
     {
-        GameObject ticket = Instantiate(ticketPrefab);
+        GameObject ticket = Instantiate(ticketPrefab, GameObject.FindGameObjectWithTag("TicketCanvas").transform);
         TicketControl tc = ticket.GetComponent<TicketControl>();        
 
         tc.ticketNumber = guestInfo.customerNumber;
@@ -26,7 +26,8 @@ public class TicketManager : MonoBehaviour
     public void TicketToLine()
     {
         tickets[ticketCount - 1].transform.position = spots[ticketCount - 1].position;
-        tickets[ticketCount - 1].transform.localScale = new Vector3(0.877617836f, 1.567307f, 0.0407048538f);
+        tickets[ticketCount - 1].transform.SetAsFirstSibling();
+        tickets[ticketCount - 1].transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
     }
 
     public void DestroyTicket(int ticketNumber)

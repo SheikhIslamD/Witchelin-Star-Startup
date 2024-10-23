@@ -16,7 +16,6 @@ public class CustomerControl : MonoBehaviour
     public float patienceRate;
     public float patienceCurrent;
     bool counter = false;
-    [SerializeField] Canvas patienceMeter;
 
     [Header("Script Managers")]
     DiningManager dm;
@@ -35,17 +34,12 @@ public class CustomerControl : MonoBehaviour
         {
             if (!counter)
             {
-                patienceMeter.enabled = false;
                 counter = true;
                 patienceCurrent = patienceMax;
             }            
         }
         else
         {
-            if (patienceMeter.enabled == false)
-            {
-                patienceMeter.enabled = true;
-            }
             PatienceManager();
         }
 
