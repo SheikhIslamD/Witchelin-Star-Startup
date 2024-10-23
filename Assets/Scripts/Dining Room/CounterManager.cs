@@ -27,6 +27,7 @@ public class CounterManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         dm.SitDown();
+        tm.TicketToLine();
         orderBox.SetActive(false);
     }
 }

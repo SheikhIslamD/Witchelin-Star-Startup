@@ -106,4 +106,28 @@ public class DiningManager : MonoBehaviour
         }
         counter = null;
     }
+
+    public void PickupOrder()
+    {
+
+    }
+
+    public void GuestLeaves(GameObject guestName)
+    {
+        if (line.Contains(guestName))
+        {
+            line.Remove(guestName);
+        }
+        else
+        {
+            for (int i = 0; i < tables.Length; i++)
+            {
+                if (tables[i] == guestName)
+                {
+                    tables[i] = null;
+                    break;
+                }
+            }
+        }
+    }
 }

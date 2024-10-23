@@ -14,6 +14,8 @@ public class CustomerControl : MonoBehaviour
     [Header("Waiting Information")]
     float patienceMax;
     float patienceRate;
+    float patienceCurrent;
+    bool counter = false;
 
     [Header("Script Managers")]
     DiningManager dm;
@@ -21,9 +23,47 @@ public class CustomerControl : MonoBehaviour
 
     private void Start()
     {
+        patienceCurrent = patienceMax;
         dm = GameObject.FindGameObjectWithTag("DiningRoom").GetComponent<DiningManager>();
         tm = GameObject.FindGameObjectWithTag("TicketManager").GetComponent<TicketManager>(); 
     }
+
+    private void Update()
+    {
+        if (dm.counter == this)
+        {
+            if (!counter)
+            {
+                counter = true;
+                patienceCurrent = patienceMax;
+            }            
+        }
+        else
+        {
+            PatienceManager();
+        }
+
+    }
+
+    void PatienceManager()
+    {        
+        patienceCurrent -= patienceRate * Time.deltaTime;
+
+        if (patienceCurrent <= 0)
+        {
+            dm.GuestLeaves(gameObject);
+            tm.DestroyTicket(customerNumber);
+
+            // Make this an animation
+            Destroy(gameObject);
+        }
+    }
+
+    void ChunkPatience()
+    {
+        patienceCurrent -= patienceMax / 5;
+    }
+
     // Give this specific Gameobject data from the selected Scriptable Object
     public void AssignData(Customer guest, Protein dish)
     {
@@ -54,6 +94,7 @@ public class CustomerControl : MonoBehaviour
             {
                 //
                 Debug.Log("You gave me the wrong dish!");
+                ChunkPatience();
                 return;
             }
             
@@ -61,12 +102,14 @@ public class CustomerControl : MonoBehaviour
             {
                 case 0:
                     Debug.Log("This is under cooked!");
+                    ChunkPatience();
                     break;
                 case 1:
                     Debug.Log("This is Perfect!");
                     break;
                 case 2:
                     Debug.Log("This was cooked way too long!");
+                    ChunkPatience();
                     break;
                 default:
                     Debug.Log("State is inaccurate");

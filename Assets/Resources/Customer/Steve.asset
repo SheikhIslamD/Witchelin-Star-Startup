@@ -15,4 +15,4 @@ MonoBehaviour:
   customerName: Steve
   customerSprite: {fileID: 7482667652216324306, guid: 4fa715e18b085b04085e47d8e2fe6303, type: 3}
   patienceMax: 100
-  patienceRate: 0
+  patienceRate: 0.05

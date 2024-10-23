@@ -30,4 +30,9 @@ public class TicketControl : MonoBehaviour
             childText.text = "0" + (ticketNumber + 1).ToString();
         }
     }
+
+    void OnDestroy()
+    {
+       //Play burnup animation
+    }
 }
