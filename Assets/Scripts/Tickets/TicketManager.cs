@@ -7,6 +7,8 @@ public class TicketManager : MonoBehaviour
     [SerializeField] GameObject[] tickets = new GameObject[10];
     [SerializeField] Transform[] spots = new Transform[10];
     [SerializeField] GameObject ticketPrefab;
+
+    [Header("Button Management")]
         
     int ticketCount = 0;
     public void CreateTicket(CustomerControl guestInfo)

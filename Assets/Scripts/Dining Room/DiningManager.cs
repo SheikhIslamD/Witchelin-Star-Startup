@@ -107,7 +107,7 @@ public class DiningManager : MonoBehaviour
         counter = null;
     }
 
-    public void PickupOrder()
+    public void PickupOrder(int ticketNumber)
     {
 
     }

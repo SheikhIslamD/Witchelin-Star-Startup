@@ -10,8 +10,6 @@ public class AssignUnlocks : MonoBehaviour
     [SerializeField] CustomerDatabase c_Database;
     [SerializeField] ProteinDatabase p_Database;
 
-    public Customer test;
-
     private void Start()
     {
         waveCustomers = new List<Customer>();
@@ -24,9 +22,6 @@ public class AssignUnlocks : MonoBehaviour
         // Add the Anytime Customers
         Debug.Log("Adding Customers");
         waveCustomers.AddRange(c_Database.anytimeCustomers);
-
-        test = waveCustomers[0];
-        Debug.Log("Hi I'm test: " + test);
         // Based on Time of Day, add other customers
         switch (wave)
         {
