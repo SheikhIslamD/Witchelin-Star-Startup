@@ -7,11 +7,14 @@ public class DiningManager : MonoBehaviour
     [Header("Line Management")]
     LinkedList<GameObject> line;
     public GameObject counter;
+    public GameObject pickup;
     GameObject[] tables = new GameObject[10];
 
-    public Transform[] linePositions = new Transform[10];
-    public Transform[] tablePositions = new Transform[10];
-    public Transform counterPosition;
+    [SerializeField] Transform[] linePositions = new Transform[10];
+    [SerializeField] Transform[] tablePositions = new Transform[10];
+    List<Transform> avaliableTables = new List<Transform>();
+    [SerializeField] Transform counterPosition;
+    [SerializeField] Transform pickupPosition;
 
     int waiting = 0;
     int lineOrder = 0;
@@ -22,8 +25,8 @@ public class DiningManager : MonoBehaviour
     [SerializeField]  GetCustomer gc;
 
     [Header("Canvas")]
-    public Canvas canvas;
-    public TextMeshProUGUI guestName;
+    [SerializeField] Canvas canvas;
+    [SerializeField] TextMeshProUGUI guestName;
 
     //Managae Locations
     //Counter Controlls
@@ -95,20 +98,23 @@ public class DiningManager : MonoBehaviour
 
     public void SitDown()
     {
-        for (int i = 0; i < tables.Length; i++)
+        int i = Random.Range(0, tablePositions.Length);
+
+        if (tables[i] == null)
         {
-            if (tables[i] == null)
-            {
-                tables[i] = counter;
-                tables[i].transform.position = tablePositions[i].position;
-                break;
-            }
+            tables[i] = counter;
+            tables[i].transform.position = tablePositions[i].position;
+            counter = null;
         }
-        counter = null;
+        else
+        {
+            SitDown();
+        }
     }
 
     public void PickupOrder(int ticketNumber)
     {
+        pickup = tables[ticketNumber];
 
     }
 
