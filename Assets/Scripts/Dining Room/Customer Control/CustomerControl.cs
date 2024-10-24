@@ -86,7 +86,7 @@ public class CustomerControl : MonoBehaviour
     }
 
     // When Order is done, Review the Order
-    public void ReviewOrder(Ingredient given)
+    public bool ReviewOrder(Protein given)
     {
         if (given != null)
         {
@@ -95,7 +95,7 @@ public class CustomerControl : MonoBehaviour
                 //
                 Debug.Log("You gave me the wrong dish!");
                 ChunkPatience();
-                return;
+                return false;
             }
             
             switch (given.cookState)
@@ -103,20 +103,20 @@ public class CustomerControl : MonoBehaviour
                 case 0:
                     Debug.Log("This is under cooked!");
                     ChunkPatience();
-                    break;
+                    return false;
                 case 1:
                     Debug.Log("This is Perfect!");
-                    break;
+                    return true;
                 case 2:
                     Debug.Log("This was cooked way too long!");
                     ChunkPatience();
-                    break;
+                    return false;
                 default:
                     Debug.Log("State is inaccurate");
                     break;
             }
 
         }
-
+        return false;
     }
 }

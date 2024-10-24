@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using System.Linq;
 
 public class DiningManager : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class DiningManager : MonoBehaviour
     [SerializeField] Transform[] linePositions = new Transform[10];
     [SerializeField] Transform[] tablePositions = new Transform[10];
     List<Transform> avaliableTables = new List<Transform>();
+    List<Transform> takenTables = new List<Transform>();
     [SerializeField] Transform counterPosition;
     [SerializeField] Transform pickupPosition;
 
+    int tabled = 0;
     int waiting = 0;
     int lineOrder = 0;
 
@@ -34,6 +37,7 @@ public class DiningManager : MonoBehaviour
     void Start()
     {
         line = new LinkedList<GameObject>();
+        avaliableTables.AddRange(tablePositions);
 
         // *NEEDS TO BE ADDED* Set variable to begin wave spawner
         au.AssignDishUnlocks("Cock");
@@ -98,24 +102,35 @@ public class DiningManager : MonoBehaviour
 
     public void SitDown()
     {
-        int i = Random.Range(0, tablePositions.Length);
+        tables[tabled] = counter;
 
-        if (tables[i] == null)
-        {
-            tables[i] = counter;
-            tables[i].transform.position = tablePositions[i].position;
-            counter = null;
-        }
-        else
-        {
-            SitDown();
-        }
+        int i = Random.Range(0, avaliableTables.Count);
+        tables[tabled].transform.position = avaliableTables[i].transform.position;
+        takenTables.Add(avaliableTables[i]);
+        avaliableTables.RemoveAt(i);
     }
 
     public void PickupOrder(int ticketNumber)
     {
         pickup = tables[ticketNumber];
+        tables[ticketNumber] = null;
 
+        CustomerControl pickupScript = pickup.GetComponent<CustomerControl>();
+        // WILL NEED TO CONNECT TO HAND
+        // HAND MUST HOLD PLATED OBJECT
+        /*if (pickupScript.ReviewOrder())
+        {
+            AvaliableTables.Add(TakenTables.ElementAt(ticketNumber));
+            TakenTables.RemoveAt(ticketNumber);
+            //Whatever other happpy result functions;
+            pickup = null;
+        }
+        else
+        {
+            tables[ticketNumber] = pickup;
+            pickup = null;
+        }
+        */
     }
 
     public void GuestLeaves(GameObject guestName)
