@@ -11,6 +11,8 @@ public class DoorEnemy : MonoBehaviour
 {
     UnityEvent<float> m_BroadcastDamage;
     [SerializeField] float health, maxHealth = 3f;
+    
+
 
     private void Start()
     {
@@ -24,7 +26,9 @@ public class DoorEnemy : MonoBehaviour
 
         if (health <= 0)
         {
+            GameObject.FindWithTag("Spawner").GetComponent<EnemySpawner>().SpawnEnemyCountdownBegin();
             Destroy(gameObject);
+            
         }
     }
 }
