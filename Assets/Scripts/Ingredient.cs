@@ -22,6 +22,7 @@ public class Ingredient : MonoBehaviour
     [Header("Dish Information")]
     public string dishName;
     public int cookMethod;
+    public bool isPlated;
     public Sprite dishSprite;
 
     public Sprite[] cockDishSprites;

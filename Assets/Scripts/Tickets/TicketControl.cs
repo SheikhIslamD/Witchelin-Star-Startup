@@ -51,6 +51,8 @@ public class TicketControl : MonoBehaviour
         StartCoroutine(WaitToMove());
     }
 
+
+
     public void AssignValues()
     {        
         childSR.sprite = orderSprite;
