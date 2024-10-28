@@ -103,11 +103,13 @@ public class DiningManager : MonoBehaviour
     public void SitDown()
     {
         tables[tabled] = counter;
+        counter = null;
 
         int i = Random.Range(0, avaliableTables.Count);
         tables[tabled].transform.position = avaliableTables[i].transform.position;
         takenTables.Add(avaliableTables[i]);
         avaliableTables.RemoveAt(i);
+
     }
 
     public void PickupOrder(int ticketNumber)
