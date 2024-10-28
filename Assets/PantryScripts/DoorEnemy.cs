@@ -13,13 +13,14 @@ public class DoorEnemy : MonoBehaviour
     [SerializeField] float health, maxHealth = 3f;
     
 
-
+    //Enemy Health on Start
     private void Start()
     {
         
         health = maxHealth;
     }
 
+    //Enemy Takes Damage Destroy
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;

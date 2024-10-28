@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float spawnInterval = 3.5f;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     public void SpawnEnemyCountdownBegin()
     {
         StartCoroutine(spawnEnemy(spawnInterval, spawnPrefab));
@@ -19,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(spawnEnemy(spawnInterval, spawnPrefab));
     }
 
+    //Enemy Spawn Based on Location and Time
     private IEnumerator spawnEnemy(float interval, GameObject enemy)
     {
         yield return new WaitForSeconds(spawnInterval);
