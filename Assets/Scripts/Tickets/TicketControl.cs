@@ -34,8 +34,14 @@ public class TicketControl : MonoBehaviour
     Button button;
     [SerializeField] DiningManager dm;
 
+    public static TicketControl instance;
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         childSR = transform.GetChild(0).GetComponentInChildren<Image>();
         childText = transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>();
 
@@ -44,6 +50,7 @@ public class TicketControl : MonoBehaviour
         button.interactable = false;
         StartCoroutine(WaitToMove());
     }
+
     public void AssignValues()
     {        
         childSR.sprite = orderSprite;
