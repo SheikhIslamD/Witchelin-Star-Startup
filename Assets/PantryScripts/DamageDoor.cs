@@ -1,15 +1,20 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 public class DamageDoor : MonoBehaviour
 {
-
+    [SerializeField] 
+    public TextMeshProUGUI healthDisplay;
     private DoorHealth doorHealthScript;
 
     public List<int> dmgOverTimeTick = new List<int>();
     void Start()
     {
+        healthDisplay = GameObject.Find("HealthDisplay").GetComponent<TextMeshProUGUI>();
+        Debug.Log(healthDisplay);
         doorHealthScript = GetComponent<DoorHealth>();
     }
 
@@ -35,10 +40,13 @@ public class DamageDoor : MonoBehaviour
                 dmgOverTimeTick[i]--;
             }
             doorHealthScript.health -= 1;
+            healthDisplay.text = doorHealthScript.health.ToString();
             dmgOverTimeTick.RemoveAll(i => i == 0);
             yield return new WaitForSeconds(0.75f);
         }
 
     }
+
+
 
 }
