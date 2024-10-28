@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e06cc8394119440b037992f258000c, type: 3}
   m_Name: Jerry
   m_EditorClassIdentifier: 
-  customerID: 0
   customerName: Jerry
-  customerSprite: {fileID: -2413806693520163455, guid: 80a647fc54bf9ae4cae74f580d3ca855, type: 3}
-  customerOrder: {fileID: 0}
+  customerSprite: {fileID: 178396429, guid: f663868f842864f47b5a7679ddef0544, type: 3}
   patienceMax: 100
-  patienceRate: 0.05
+  patienceRate: 1

@@ -1,42 +1,43 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
-using UnityEngine.UI;
+using System.Linq;
 
 public class DiningManager : MonoBehaviour
 {
     [Header("Line Management")]
     LinkedList<GameObject> line;
     public GameObject counter;
+    public GameObject pickup;
     GameObject[] tables = new GameObject[10];
 
-    public Transform[] linePositions = new Transform[10];
-    public Transform[] tablePositions = new Transform[10];
-    public Transform counterPosition;
+    [SerializeField] Transform[] linePositions = new Transform[10];
+    [SerializeField] Transform[] tablePositions = new Transform[10];
+    List<Transform> avaliableTables = new List<Transform>();
+    List<Transform> takenTables = new List<Transform>();
+    [SerializeField] Transform counterPosition;
+    [SerializeField] Transform pickupPosition;
 
+    int tabled = 0;
     int waiting = 0;
     int lineOrder = 0;
-    [Space(10)]
 
     [Header("Get Scripts")]
-    CustomerSystem cs;
-    AssignUnlocks au;
-    GetCustomer gc;
+    [SerializeField] CustomerSystem cs;
+    [SerializeField] AssignUnlocks au;
+    [SerializeField]  GetCustomer gc;
 
     [Header("Canvas")]
-    public Canvas canvas;
-    public TextMeshProUGUI guestName;
+    [SerializeField] Canvas canvas;
+    [SerializeField] TextMeshProUGUI guestName;
 
     //Managae Locations
     //Counter Controlls
     //Ticket Management
     void Start()
     {
-        cs = GetComponent<CustomerSystem>();
-        au = GetComponent<AssignUnlocks>();
-        gc = GetComponent<GetCustomer>();
-
         line = new LinkedList<GameObject>();
+        avaliableTables.AddRange(tablePositions);
 
         // *NEEDS TO BE ADDED* Set variable to begin wave spawner
         au.AssignDishUnlocks("Cock");
@@ -101,15 +102,55 @@ public class DiningManager : MonoBehaviour
 
     public void SitDown()
     {
-        for (int i = 0; i < tables.Length; i++)
+        tables[tabled] = counter;
+        counter = null;
+
+        int i = Random.Range(0, avaliableTables.Count);
+        tables[tabled].transform.position = avaliableTables[i].transform.position;
+        takenTables.Add(avaliableTables[i]);
+        avaliableTables.RemoveAt(i);
+
+    }
+
+    public void PickupOrder(int ticketNumber)
+    {
+        pickup = tables[ticketNumber];
+        tables[ticketNumber] = null;
+
+        CustomerControl pickupScript = pickup.GetComponent<CustomerControl>();
+        // WILL NEED TO CONNECT TO HAND
+        // HAND MUST HOLD PLATED OBJECT
+        /*if (pickupScript.ReviewOrder())
         {
-            if (tables[i] == null)
+            AvaliableTables.Add(TakenTables.ElementAt(ticketNumber));
+            TakenTables.RemoveAt(ticketNumber);
+            //Whatever other happpy result functions;
+            pickup = null;
+        }
+        else
+        {
+            tables[ticketNumber] = pickup;
+            pickup = null;
+        }
+        */
+    }
+
+    public void GuestLeaves(GameObject guestName)
+    {
+        if (line.Contains(guestName))
+        {
+            line.Remove(guestName);
+        }
+        else
+        {
+            for (int i = 0; i < tables.Length; i++)
             {
-                tables[i] = counter;
-                tables[i].transform.position = tablePositions[i].position;
-                break;
+                if (tables[i] == guestName)
+                {
+                    tables[i] = null;
+                    break;
+                }
             }
         }
-        counter = null;
     }
 }

@@ -12,8 +12,57 @@ public class CustomerControl : MonoBehaviour
 
 
     [Header("Waiting Information")]
-    float patienceMax;
-    float patienceRate;
+    public float patienceMax;
+    public float patienceRate;
+    public float patienceCurrent;
+    bool counter = false;
+
+    [Header("Script Managers")]
+    DiningManager dm;
+    TicketManager tm;
+
+    void Start()
+    {
+        patienceCurrent = patienceMax;
+        dm = GameObject.FindGameObjectWithTag("DiningRoom").GetComponent<DiningManager>();
+        tm = GameObject.FindGameObjectWithTag("TicketManager").GetComponent<TicketManager>(); 
+    }
+
+    void Update()
+    {
+        if (dm.counter == gameObject)
+        {
+            if (!counter)
+            {
+                counter = true;
+                patienceCurrent = patienceMax;
+            }            
+        }
+        else
+        {
+            PatienceManager();
+        }
+
+    }
+
+    void PatienceManager()
+    {        
+        patienceCurrent -= patienceRate * Time.deltaTime;
+
+        if (patienceCurrent <= 0)
+        {
+            dm.GuestLeaves(gameObject);
+            tm.DestroyTicket(customerNumber);
+
+            // Make this an animation
+            Destroy(gameObject);
+        }
+    }
+
+    void ChunkPatience()
+    {
+        patienceCurrent -= patienceMax / 5;
+    }
 
     // Give this specific Gameobject data from the selected Scriptable Object
     public void AssignData(Customer guest, Protein dish)
@@ -26,8 +75,7 @@ public class CustomerControl : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = guest.customerSprite;
 
         // Assign this GO a name
-        customerOrder = dish;
-        
+        customerOrder = dish;        
     }
 
     // When Interacted with, provide the Player with an order
@@ -38,7 +86,7 @@ public class CustomerControl : MonoBehaviour
     }
 
     // When Order is done, Review the Order
-    public void ReviewOrder(Ingredient given)
+    public bool ReviewOrder(Protein given)
     {
         if (given != null)
         {
@@ -46,26 +94,29 @@ public class CustomerControl : MonoBehaviour
             {
                 //
                 Debug.Log("You gave me the wrong dish!");
-                return;
+                ChunkPatience();
+                return false;
             }
             
             switch (given.cookState)
             {
                 case 0:
                     Debug.Log("This is under cooked!");
-                    break;
+                    ChunkPatience();
+                    return false;
                 case 1:
                     Debug.Log("This is Perfect!");
-                    break;
+                    return true;
                 case 2:
                     Debug.Log("This was cooked way too long!");
-                    break;
+                    ChunkPatience();
+                    return false;
                 default:
                     Debug.Log("State is inaccurate");
                     break;
             }
 
         }
-
+        return false;
     }
 }
