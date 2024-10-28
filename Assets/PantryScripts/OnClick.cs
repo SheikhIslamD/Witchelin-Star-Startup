@@ -6,7 +6,7 @@ public class OnClick : MonoBehaviour
 {
     public Button yourButton;
 
-    
+    //On Click Damage Enemy
     public void TaskOnClick()
     {
         

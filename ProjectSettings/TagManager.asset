@@ -6,7 +6,8 @@ TagManager:
   tags:
   - DiningRoom
   - TicketManager
-  - TicketCanvas
+  - Enemy
+  - Spawner
   layers:
   - Default
   - TransparentFX
