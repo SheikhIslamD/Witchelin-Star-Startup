@@ -20,6 +20,8 @@ public class Cameras : MonoBehaviour
     InputAction next;
     InputAction back;
 
+    public bool dining = false; 
+
     //for making this a singleton
     public static Cameras instance;
     void Awake()
@@ -73,6 +75,8 @@ public class Cameras : MonoBehaviour
 
     public void PantryCam()
     {
+
+        dining = false;
         pantryCam.Priority = 10;
         kitchenCam.Priority = 0;
         diningCam.Priority = 0;
@@ -81,6 +85,8 @@ public class Cameras : MonoBehaviour
     }
     public void KitchenCam()
     {
+
+        dining = false;
         pantryCam.Priority = 0;
         kitchenCam.Priority = 10;
         diningCam.Priority = 0;
@@ -89,6 +95,7 @@ public class Cameras : MonoBehaviour
     }
     public void DiningCam()
     {
+        dining = true;
         pantryCam.Priority = 0;
         kitchenCam.Priority = 0;
         diningCam.Priority = 10;
@@ -97,6 +104,8 @@ public class Cameras : MonoBehaviour
     }
     public void EverythingCam()
     {
+
+        dining = false;
         pantryCam.Priority = 0;
         kitchenCam.Priority = 0;
         diningCam.Priority = 0;
