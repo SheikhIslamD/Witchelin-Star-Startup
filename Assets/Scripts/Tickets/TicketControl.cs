@@ -32,7 +32,7 @@ public class TicketControl : MonoBehaviour
     TextMeshProUGUI childText;
 
     Button button;
-    [SerializeField] DiningManager dm;
+    //[SerializeField] DiningManager dm;
 
     public static TicketControl instance;
     void Awake()
@@ -69,7 +69,7 @@ public class TicketControl : MonoBehaviour
 
     public void PresentToGuest()
     {
-        dm.PickupOrder(ticketNumber);
+        DiningManager.instance.PickupOrder(ticketNumber);
     }
 
     IEnumerator WaitToMove()
