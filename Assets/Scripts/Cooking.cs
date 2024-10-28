@@ -9,6 +9,9 @@ using UnityEngine.UI;
 
 public class Cooking : MonoBehaviour
 {
+    [Header("Set this station's cookMethod here")]
+    public int cookMethod;
+
     public TextMeshProUGUI cookingCountdownText;
     public bool currentlyCooking; //if stove is running
     //public float cookTime; //how long to cooking takes
@@ -92,6 +95,8 @@ public class Cooking : MonoBehaviour
             {
                 timeSlider.value = cookTime;
             }
+            //assign cookMethod for this station
+            whatsCooking.GetComponent<Ingredient>().cookMethod = cookMethod;
 
             //red if undercooked
             if (cookTime < whatsCooking.GetComponent<Ingredient>().cookMin)
@@ -131,6 +136,8 @@ public class Cooking : MonoBehaviour
     public void Plating()
     {
         GameObject platedfood = PlayerHands.instance.heldItem;
+        //update ingredient to reflect plated appearance according to current station's cookMethod 
+        platedfood.GetComponent<Ingredient>().PlatingUpdate();
         PlayerHands.instance.PutDown();
         platedfood.transform.SetParent(platedTransform.transform, true);
         platedfood.transform.position = platedTransform.transform.position;
