@@ -10,6 +10,15 @@ public class AssignUnlocks : MonoBehaviour
     [SerializeField] CustomerDatabase c_Database;
     [SerializeField] ProteinDatabase p_Database;
 
+    public static AssignUnlocks instance;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     private void Start()
     {
         waveCustomers = new List<Customer>();

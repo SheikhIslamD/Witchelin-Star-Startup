@@ -22,11 +22,6 @@ public class DiningManager : MonoBehaviour
     int waiting = 0;
     int lineOrder = 0;
 
-    [Header("Get Scripts")]
-    [SerializeField] CustomerSystem cs;
-    [SerializeField] AssignUnlocks au;
-    [SerializeField]  GetCustomer gc;
-
     [Header("Canvas")]
     [SerializeField] Canvas canvas;
     [SerializeField] TextMeshProUGUI guestName;
@@ -50,8 +45,8 @@ public class DiningManager : MonoBehaviour
         avaliableTables.AddRange(tablePositions);
 
         // *NEEDS TO BE ADDED* Set variable to begin wave spawner
-        au.AssignDishUnlocks("Cock");
-        cs.StartNextWave();
+        AssignUnlocks.instance.AssignDishUnlocks("Cock");
+        CustomerSystem.instance.StartNextWave();
     }
 
     void Update()

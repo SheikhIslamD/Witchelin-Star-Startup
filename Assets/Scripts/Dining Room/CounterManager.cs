@@ -12,6 +12,14 @@ public class CounterManager : MonoBehaviour
     [SerializeField] GameObject orderBox;
     [SerializeField] TextMeshProUGUI orderDescription;
 
+    public static CounterManager instance;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     public void TakeOrder()
     {
         orderBox.SetActive(true);

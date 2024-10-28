@@ -18,19 +18,18 @@ public class CustomerControl : MonoBehaviour
     bool counter = false;
 
     [Header("Script Managers")]
-    DiningManager dm;
+    //DiningManager dm;
     TicketManager tm;
 
     void Start()
     {
         patienceCurrent = patienceMax;
-        dm = GameObject.FindGameObjectWithTag("DiningRoom").GetComponent<DiningManager>();
         tm = GameObject.FindGameObjectWithTag("TicketManager").GetComponent<TicketManager>(); 
     }
 
     void Update()
     {
-        if (dm.counter == gameObject)
+        if (DiningManager.instance.counter == gameObject)
         {
             if (!counter)
             {
@@ -51,7 +50,7 @@ public class CustomerControl : MonoBehaviour
 
         if (patienceCurrent <= 0)
         {
-            dm.GuestLeaves(gameObject);
+            DiningManager.instance.GuestLeaves(gameObject);
             tm.DestroyTicket(customerNumber);
 
             // Make this an animation

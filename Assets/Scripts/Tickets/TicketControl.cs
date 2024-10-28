@@ -51,7 +51,17 @@ public class TicketControl : MonoBehaviour
         StartCoroutine(WaitToMove());
     }
 
-
+    public void ToggleButton(bool active)
+    {
+        if (active && PlayerHands.instance.handsFull && PlayerHands.instance.heldItem.GetComponent<Ingredient>().isPlated)
+        {
+            button.interactable = true;
+        }
+        else
+        {
+            button.interactable = false;
+        }
+    }
 
     public void AssignValues()
     {        
