@@ -120,17 +120,18 @@ public class DiningManager : MonoBehaviour
     public void PickupOrder(int ticketNumber)
     {
         pickup = tables[ticketNumber];
+        Debug.Log(pickup.name + " is picking up.");
         tables[ticketNumber] = null;
 
         CustomerControl pickupScript = pickup.GetComponent<CustomerControl>();
-        // WILL NEED TO CONNECT TO HAND
-        // HAND MUST HOLD PLATED OBJECT
         if (pickupScript.ReviewOrder(PlayerHands.instance.heldItem.GetComponent<Ingredient>()))
         {
             avaliableTables.Add(takenTables.ElementAt(ticketNumber));
             takenTables.RemoveAt(ticketNumber);
             //Whatever other happpy result functions;
             pickup = null;
+
+            Debug.Log(pickup + " is hopefully null." + takenTables.ElementAt(ticketNumber));
         }
         else
         {

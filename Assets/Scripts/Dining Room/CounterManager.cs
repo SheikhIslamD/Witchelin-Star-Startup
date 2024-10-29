@@ -4,10 +4,6 @@ using System.Collections;
 
 public class CounterManager : MonoBehaviour
 {
-    [Header("Script Gets")]
-    [SerializeField] TicketManager tm;
-    [SerializeField] DiningManager dm;
-
     [Header("Canvas Gets")]
     [SerializeField] GameObject orderBox;
     [SerializeField] TextMeshProUGUI orderDescription;
@@ -23,10 +19,10 @@ public class CounterManager : MonoBehaviour
     public void TakeOrder()
     {
         orderBox.SetActive(true);
-        CustomerControl cc = dm.counter.GetComponent<CustomerControl>();
+        CustomerControl cc = DiningManager.instance.counter.GetComponent<CustomerControl>();
         orderDescription.text = cc.PlaceOrder();
 
-        tm.CreateTicket(cc);
+        TicketManager.instance.CreateTicket(cc);
 
         StartCoroutine(TakeASeat());
     }
@@ -34,8 +30,8 @@ public class CounterManager : MonoBehaviour
     IEnumerator TakeASeat()
     {
         yield return new WaitForSeconds(3f);
-        dm.SitDown();
-        tm.TicketToLine();
+        DiningManager.instance.SitDown();
+        TicketManager.instance.TicketToLine();
         orderBox.SetActive(false);
     }
 }
