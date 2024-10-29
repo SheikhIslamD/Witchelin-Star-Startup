@@ -51,9 +51,12 @@ public class TicketControl : MonoBehaviour
     }
     public void ToggleButton()
     {
-        if (Cameras.dining && PlayerHands.instance.heldItem.GetComponent<Ingredient>().isPlated)
+        if (PlayerHands.instance.handsFull)
         {
-            button.interactable = true;
+            if (PlayerHands.instance.heldItem.GetComponent<Ingredient>().isPlated)
+            {
+                button.interactable = true;
+            }
         }
         else
         {

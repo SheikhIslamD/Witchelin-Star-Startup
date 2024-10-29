@@ -8,6 +8,8 @@ public class CounterManager : MonoBehaviour
     [SerializeField] GameObject orderBox;
     [SerializeField] TextMeshProUGUI orderDescription;
 
+    bool wait = false;
+
     public static CounterManager instance;
     void Awake()
     {
@@ -18,13 +20,17 @@ public class CounterManager : MonoBehaviour
     }
     public void TakeOrder()
     {
-        orderBox.SetActive(true);
-        CustomerControl cc = DiningManager.instance.counter.GetComponent<CustomerControl>();
-        orderDescription.text = cc.PlaceOrder();
+        if (!wait)
+        {
+            wait = true;
+            orderBox.SetActive(true);
+            CustomerControl cc = DiningManager.instance.counter.GetComponent<CustomerControl>();
+            orderDescription.text = cc.PlaceOrder();
 
-        TicketManager.instance.CreateTicket(cc);
+            TicketManager.instance.CreateTicket(cc);
 
-        StartCoroutine(TakeASeat());
+            StartCoroutine(TakeASeat());
+        }        
     }
 
     IEnumerator TakeASeat()
@@ -33,5 +39,13 @@ public class CounterManager : MonoBehaviour
         DiningManager.instance.SitDown();
         TicketManager.instance.TicketToLine();
         orderBox.SetActive(false);
+        wait = false;
+    }
+
+    public void ReviewOrder()
+    {
+        orderBox.SetActive(true);
+        CustomerControl cc = DiningManager.instance.pickup.GetComponent<CustomerControl>();
+        orderDescription.text = cc.customerReview;
     }
 }

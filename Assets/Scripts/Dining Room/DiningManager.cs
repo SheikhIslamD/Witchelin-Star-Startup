@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 using System.Linq;
+using System.Collections;
 
 public class DiningManager : MonoBehaviour
 {
@@ -52,7 +53,7 @@ public class DiningManager : MonoBehaviour
     void Update()
     {
         LineManager();
-        CounterManager();
+        CounterCanvasManager();
     }
 
     public void AddToLine(GameObject guest)
@@ -90,12 +91,17 @@ public class DiningManager : MonoBehaviour
         lineOrder = waiting;
     }
 
-    void CounterManager()
+    void CounterCanvasManager()
     {
         if (counter != null)
         {
             // Enable UI
             guestName.text = counter.name;
+            canvas.enabled = true;
+        }
+        else if(pickup != null)
+        {
+            guestName.text = pickup.name;
             canvas.enabled = true;
         }
         else
@@ -107,7 +113,7 @@ public class DiningManager : MonoBehaviour
 
     public void SitDown()
     {
-        tables[tabled] = counter;
+        tables[tabled] = counter;        
         counter = null;
 
         int i = Random.Range(0, avaliableTables.Count);
@@ -115,21 +121,37 @@ public class DiningManager : MonoBehaviour
         takenTables.Add(avaliableTables[i]);
         avaliableTables.RemoveAt(i);
 
+        tabled++;
     }
 
     public void PickupOrder(int ticketNumber)
     {
         pickup = tables[ticketNumber];
+        pickup.transform.position = pickupPosition.position;
         Debug.Log(pickup.name + " is picking up.");
         tables[ticketNumber] = null;
+
+        StartCoroutine(ToPickupCounter(ticketNumber));
+    }
+
+    IEnumerator ToPickupCounter(int ticketNumber)
+    {
+        CounterManager.instance.ReviewOrder();
+
+        yield return new WaitForSeconds(3);
 
         CustomerControl pickupScript = pickup.GetComponent<CustomerControl>();
         if (pickupScript.ReviewOrder(PlayerHands.instance.heldItem.GetComponent<Ingredient>()))
         {
             avaliableTables.Add(takenTables.ElementAt(ticketNumber));
             takenTables.RemoveAt(ticketNumber);
-            //Whatever other happpy result functions;
+            //Whatever other happy result functions;
+            Destroy(TicketManager.instance.tickets.ElementAt(ticketNumber));
+
+            tables[ticketNumber] = pickup;
             pickup = null;
+
+            Destroy(tables.ElementAt(ticketNumber));
 
             Debug.Log(pickup + " is hopefully null." + takenTables.ElementAt(ticketNumber));
         }

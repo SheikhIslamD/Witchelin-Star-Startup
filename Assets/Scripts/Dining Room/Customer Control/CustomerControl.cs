@@ -8,6 +8,7 @@ public class CustomerControl : MonoBehaviour
 
     [Header("Customer Order")]
     public Protein customerOrder;
+    public string customerReview;
     [Space(10)]
 
 
@@ -93,6 +94,7 @@ public class CustomerControl : MonoBehaviour
             {
                 //
                 Debug.Log("You gave me the wrong dish!");
+                customerReview = "You gave me the wrong dish!";
                 ChunkPatience();
                 return false;
             }
@@ -101,13 +103,16 @@ public class CustomerControl : MonoBehaviour
             {
                 case 0:
                     Debug.Log("This is under cooked!");
+                    customerReview = "This is under cooked!";
                     ChunkPatience();
                     return false;
                 case 1:
                     Debug.Log("This is Perfect!");
+                    customerReview = "This is Perfect!";
                     return true;
                 case 2:
                     Debug.Log("This was cooked way too long!");
+                    customerReview = "This was cooked way too long!";
                     ChunkPatience();
                     return false;
                 default:
