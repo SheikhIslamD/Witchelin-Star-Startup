@@ -123,4 +123,11 @@ public class CustomerControl : MonoBehaviour
         }
         return false;
     }
+
+    public string VoiceReview()
+    {
+
+        Debug.Log("" + customerReview);
+        return ("" + customerReview);
+    }
 }

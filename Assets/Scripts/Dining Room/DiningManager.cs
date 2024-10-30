@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using System.Linq;
 using System.Collections;
+using UnityEngine.UI;
 
 public class DiningManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class DiningManager : MonoBehaviour
     [Header("Canvas")]
     [SerializeField] Canvas canvas;
     [SerializeField] TextMeshProUGUI guestName;
+    [SerializeField] Button takeOrder;
 
     //Managae Locations
     //Counter Controlls
@@ -97,16 +99,22 @@ public class DiningManager : MonoBehaviour
         {
             // Enable UI
             guestName.text = counter.name;
+            takeOrder.interactable = true;
+            takeOrder.enabled = true;
             canvas.enabled = true;
         }
         else if(pickup != null)
         {
             guestName.text = pickup.name;
+            takeOrder.interactable = false;
+            takeOrder.enabled = false;
             canvas.enabled = true;
         }
         else
         {
             //Disable UI
+            takeOrder.interactable = false;
+            takeOrder.enabled = false;
             canvas.enabled = false;
         }
     }
@@ -136,15 +144,19 @@ public class DiningManager : MonoBehaviour
 
     IEnumerator ToPickupCounter(int ticketNumber)
     {
-        CounterManager.instance.ReviewOrder();
-
-        yield return new WaitForSeconds(3);
+        // Simulate giving them the Order
+        Destroy(PlayerHands.instance.heldItem);
+        PlayerHands.instance.PutDown();
 
         CustomerControl pickupScript = pickup.GetComponent<CustomerControl>();
+
         if (pickupScript.ReviewOrder(PlayerHands.instance.heldItem.GetComponent<Ingredient>()))
         {
-            avaliableTables.Add(takenTables.ElementAt(ticketNumber));
-            takenTables.RemoveAt(ticketNumber);
+            CounterManager.instance.ReviewOrder();
+            yield return new WaitForSeconds(3);
+
+            avaliableTables.Add(takenTables[ticketNumber]);
+            takenTables.Remove(takenTables.ElementAt(ticketNumber));
             //Whatever other happy result functions;
             Destroy(TicketManager.instance.tickets.ElementAt(ticketNumber));
 
@@ -152,14 +164,20 @@ public class DiningManager : MonoBehaviour
             pickup = null;
 
             Destroy(tables.ElementAt(ticketNumber));
-
-            Debug.Log(pickup + " is hopefully null." + takenTables.ElementAt(ticketNumber));
         }
         else
         {
+            CounterManager.instance.ReviewOrder();
+            yield return new WaitForSeconds(3);
+
+
             tables[ticketNumber] = pickup;
+            tables[ticketNumber].transform.position = takenTables.ElementAt(ticketNumber).position;
             pickup = null;
         }
+
+        Destroy(PlayerHands.instance.heldItem);
+        PlayerHands.instance.PutDown();
     }
 
     public void GuestLeaves(GameObject guestName)

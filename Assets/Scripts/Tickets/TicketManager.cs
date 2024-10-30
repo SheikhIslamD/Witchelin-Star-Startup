@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class TicketManager : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class TicketManager : MonoBehaviour
     {
         if (tickets[ticketNumber] != null)
         {
-            Destroy(tickets[ticketNumber]);
+            Destroy(tickets.ElementAt(ticketNumber));
             tickets[ticketNumber] = null;
         }
     }

@@ -32,6 +32,8 @@ public class TicketControl : MonoBehaviour
     TextMeshProUGUI childText;
 
     Button button;
+
+    bool ready = false;
     void Awake()
     {
         childSR = transform.GetChild(0).GetComponentInChildren<Image>();
@@ -40,11 +42,18 @@ public class TicketControl : MonoBehaviour
         Debug.Log("Ticket Sprite object: " + childSR + "\nTicket Number object: " + childText);
         button = transform.GetChild(2).GetComponentInChildren<Button>();
         button.interactable = false;
+        StartCoroutine(WaitForButton());
+    }
+
+    IEnumerator WaitForButton()
+    {
+        yield return new WaitForSeconds(3);
+        ready = true;
     }
 
     private void Update()
     {
-        if (Cameras.dining)
+        if (ready && Cameras.dining)
         {
             ToggleButton();
         }

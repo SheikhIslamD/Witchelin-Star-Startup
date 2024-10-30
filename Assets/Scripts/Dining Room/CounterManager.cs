@@ -46,6 +46,6 @@ public class CounterManager : MonoBehaviour
     {
         orderBox.SetActive(true);
         CustomerControl cc = DiningManager.instance.pickup.GetComponent<CustomerControl>();
-        orderDescription.text = cc.customerReview;
+        orderDescription.text = cc.VoiceReview();
     }
 }
