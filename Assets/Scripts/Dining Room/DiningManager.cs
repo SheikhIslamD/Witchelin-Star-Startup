@@ -34,6 +34,16 @@ public class DiningManager : MonoBehaviour
     //Managae Locations
     //Counter Controlls
     //Ticket Management
+
+    public static DiningManager instance;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         line = new LinkedList<GameObject>();
@@ -120,10 +130,10 @@ public class DiningManager : MonoBehaviour
         CustomerControl pickupScript = pickup.GetComponent<CustomerControl>();
         // WILL NEED TO CONNECT TO HAND
         // HAND MUST HOLD PLATED OBJECT
-        /*if (pickupScript.ReviewOrder())
+        if (pickupScript.ReviewOrder(PlayerHands.instance.heldItem.GetComponent<Ingredient>()))
         {
-            AvaliableTables.Add(TakenTables.ElementAt(ticketNumber));
-            TakenTables.RemoveAt(ticketNumber);
+            avaliableTables.Add(takenTables.ElementAt(ticketNumber));
+            takenTables.RemoveAt(ticketNumber);
             //Whatever other happpy result functions;
             pickup = null;
         }
@@ -132,7 +142,6 @@ public class DiningManager : MonoBehaviour
             tables[ticketNumber] = pickup;
             pickup = null;
         }
-        */
     }
 
     public void GuestLeaves(GameObject guestName)

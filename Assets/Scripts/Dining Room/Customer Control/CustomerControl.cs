@@ -86,7 +86,7 @@ public class CustomerControl : MonoBehaviour
     }
 
     // When Order is done, Review the Order
-    public bool ReviewOrder(Protein given)
+    public bool ReviewOrder(Ingredient given)
     {
         if (given != null)
         {
