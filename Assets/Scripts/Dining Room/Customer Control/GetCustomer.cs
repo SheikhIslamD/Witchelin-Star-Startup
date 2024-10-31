@@ -11,14 +11,13 @@ public class GetCustomer : MonoBehaviour
     Customer selectedCustomer;
     Protein selectedDish;
 
-    [Header("List Tracking")]
-    AssignUnlocks au;
-    DiningManager dm;
-
-    void Start()
+    public static GetCustomer instance;
+    void Awake()
     {
-        au = GetComponent<AssignUnlocks>();
-        dm = GetComponent<DiningManager>();
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
     void PickAssets()
     {
@@ -27,17 +26,17 @@ public class GetCustomer : MonoBehaviour
         selectedDish = null;
 
         // Get random index from array
-        int index = Random.Range(0, au.waveCustomers.Count);
+        int index = Random.Range(0, AssignUnlocks.instance.waveCustomers.Count);
         Debug.Log("Selected index: " + index);
         // Assign a Customer
-        selectedCustomer = au.waveCustomers[index];
+        selectedCustomer = AssignUnlocks.instance.waveCustomers[index];
         Debug.Log("Selected customer was: " + selectedCustomer);
         // Manage List to avoid spawning dupe in this wave
-        au.waveCustomers.RemoveAt(index);
-        au.waveCustomers.TrimExcess();
-        Debug.Log("Adjusted length of possible customers: " +  au.waveCustomers.Count);
+        AssignUnlocks.instance.waveCustomers.RemoveAt(index);
+        AssignUnlocks.instance.waveCustomers.TrimExcess();
+        Debug.Log("Adjusted length of possible customers: " +  AssignUnlocks.instance.waveCustomers.Count);
         // Assign a dish
-        selectedDish = au.unlockedDishes[Random.Range(0, au.unlockedDishes.Count)];
+        selectedDish = AssignUnlocks.instance.unlockedDishes[Random.Range(0, AssignUnlocks.instance.unlockedDishes.Count)];
     }
     public void spawnCustomer()
     {
@@ -55,7 +54,7 @@ public class GetCustomer : MonoBehaviour
         guestScript.AssignData(selectedCustomer, selectedDish);
         guest.name = selectedCustomer.name;
         // Put them in line
-        dm.AddToLine(guest);
+        DiningManager.instance.AddToLine(guest);
     }
     
 }

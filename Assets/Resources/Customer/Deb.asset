@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9133480bab2b5c47a0bc3875cdc375d, type: 3}
-  m_Name: Test1
+  m_Script: {fileID: 11500000, guid: c6e06cc8394119440b037992f258000c, type: 3}
+  m_Name: Deb
   m_EditorClassIdentifier: 
-  waveNumber: 0
-  spawnCount: 3
+  customerName: Deb
+  customerSprite: {fileID: -307138052, guid: f663868f842864f47b5a7679ddef0544, type: 3}
+  patienceMax: 100
+  patienceRate: 0

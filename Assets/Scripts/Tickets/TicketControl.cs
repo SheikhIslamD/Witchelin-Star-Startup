@@ -32,26 +32,46 @@ public class TicketControl : MonoBehaviour
     TextMeshProUGUI childText;
 
     Button button;
-    //[SerializeField] DiningManager dm;
 
-    public static TicketControl instance;
+    bool ready = false;
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-
         childSR = transform.GetChild(0).GetComponentInChildren<Image>();
         childText = transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>();
 
         Debug.Log("Ticket Sprite object: " + childSR + "\nTicket Number object: " + childText);
         button = transform.GetChild(2).GetComponentInChildren<Button>();
         button.interactable = false;
-        StartCoroutine(WaitToMove());
+        StartCoroutine(WaitForButton());
     }
 
+    IEnumerator WaitForButton()
+    {
+        yield return new WaitForSeconds(3);
+        ready = true;
+    }
 
+    private void Update()
+    {
+        if (ready && Cameras.dining)
+        {
+            ToggleButton();
+        }
+    }
+    public void ToggleButton()
+    {
+        if (PlayerHands.instance.handsFull)
+        {
+            if (PlayerHands.instance.heldItem.GetComponent<Ingredient>().isPlated)
+            {
+                button.interactable = true;
+            }
+        }
+        else
+        {
+            button.interactable = false;
+        }
+    }
 
     public void AssignValues()
     {        
@@ -70,12 +90,6 @@ public class TicketControl : MonoBehaviour
     public void PresentToGuest()
     {
         DiningManager.instance.PickupOrder(ticketNumber);
-    }
-
-    IEnumerator WaitToMove()
-    {
-        yield return new WaitForSeconds(3);
-        button.interactable = true;
     }
 
     void OnDestroy()

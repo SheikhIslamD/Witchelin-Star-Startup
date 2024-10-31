@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 using System.Linq;
+using System.Collections;
+using UnityEngine.UI;
 
 public class DiningManager : MonoBehaviour
 {
@@ -22,14 +24,10 @@ public class DiningManager : MonoBehaviour
     int waiting = 0;
     int lineOrder = 0;
 
-    [Header("Get Scripts")]
-    [SerializeField] CustomerSystem cs;
-    [SerializeField] AssignUnlocks au;
-    [SerializeField]  GetCustomer gc;
-
     [Header("Canvas")]
     [SerializeField] Canvas canvas;
     [SerializeField] TextMeshProUGUI guestName;
+    [SerializeField] Button takeOrder;
 
     //Managae Locations
     //Counter Controlls
@@ -50,14 +48,14 @@ public class DiningManager : MonoBehaviour
         avaliableTables.AddRange(tablePositions);
 
         // *NEEDS TO BE ADDED* Set variable to begin wave spawner
-        au.AssignDishUnlocks("Cock");
-        cs.StartNextWave();
+        AssignUnlocks.instance.AssignDishUnlocks("Cock");
+        CustomerSystem.instance.StartNextWave();
     }
 
     void Update()
     {
         LineManager();
-        CounterManager();
+        CounterCanvasManager();
     }
 
     public void AddToLine(GameObject guest)
@@ -95,24 +93,35 @@ public class DiningManager : MonoBehaviour
         lineOrder = waiting;
     }
 
-    void CounterManager()
+    void CounterCanvasManager()
     {
         if (counter != null)
         {
             // Enable UI
             guestName.text = counter.name;
+            takeOrder.interactable = true;
+            takeOrder.enabled = true;
+            canvas.enabled = true;
+        }
+        else if(pickup != null)
+        {
+            guestName.text = pickup.name;
+            takeOrder.interactable = false;
+            takeOrder.enabled = false;
             canvas.enabled = true;
         }
         else
         {
             //Disable UI
+            takeOrder.interactable = false;
+            takeOrder.enabled = false;
             canvas.enabled = false;
         }
     }
 
     public void SitDown()
     {
-        tables[tabled] = counter;
+        tables[tabled] = counter;        
         counter = null;
 
         int i = Random.Range(0, avaliableTables.Count);
@@ -120,28 +129,55 @@ public class DiningManager : MonoBehaviour
         takenTables.Add(avaliableTables[i]);
         avaliableTables.RemoveAt(i);
 
+        tabled++;
     }
 
     public void PickupOrder(int ticketNumber)
     {
         pickup = tables[ticketNumber];
+        pickup.transform.position = pickupPosition.position;
+        Debug.Log(pickup.name + " is picking up.");
         tables[ticketNumber] = null;
 
+        StartCoroutine(ToPickupCounter(ticketNumber));
+    }
+
+    IEnumerator ToPickupCounter(int ticketNumber)
+    {
+        // Simulate giving them the Order
+        Destroy(PlayerHands.instance.heldItem);
+        PlayerHands.instance.PutDown();
+
         CustomerControl pickupScript = pickup.GetComponent<CustomerControl>();
-        // WILL NEED TO CONNECT TO HAND
-        // HAND MUST HOLD PLATED OBJECT
+
         if (pickupScript.ReviewOrder(PlayerHands.instance.heldItem.GetComponent<Ingredient>()))
         {
-            avaliableTables.Add(takenTables.ElementAt(ticketNumber));
-            takenTables.RemoveAt(ticketNumber);
-            //Whatever other happpy result functions;
+            CounterManager.instance.ReviewOrder();
+            yield return new WaitForSeconds(3);
+
+            avaliableTables.Add(takenTables[ticketNumber]);
+            takenTables.Remove(takenTables.ElementAt(ticketNumber));
+            //Whatever other happy result functions;
+            Destroy(TicketManager.instance.tickets.ElementAt(ticketNumber));
+
+            tables[ticketNumber] = pickup;
             pickup = null;
+
+            Destroy(tables.ElementAt(ticketNumber));
         }
         else
         {
+            CounterManager.instance.ReviewOrder();
+            yield return new WaitForSeconds(3);
+
+
             tables[ticketNumber] = pickup;
+            tables[ticketNumber].transform.position = takenTables.ElementAt(ticketNumber).position;
             pickup = null;
         }
+
+        Destroy(PlayerHands.instance.heldItem);
+        PlayerHands.instance.PutDown();
     }
 
     public void GuestLeaves(GameObject guestName)

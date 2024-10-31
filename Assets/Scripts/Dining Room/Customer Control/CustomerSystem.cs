@@ -3,18 +3,17 @@ using UnityEngine;
 
 public class CustomerSystem : MonoBehaviour
 {
-    AssignUnlocks au;
-    GetCustomer gc;
-
     public Wave[] waves;
     int waveCount = 0;
 
-
+    public static CustomerSystem instance;
     // Need to spawn a customer and have them place an order
     void Awake()
     {
-        au = GetComponent<AssignUnlocks>();
-        gc = GetComponent<GetCustomer>();
+        if (instance == null)
+        {
+            instance = this;
+        }
 
         waves = Resources.LoadAll<Wave>("Wave");
     }
@@ -27,7 +26,7 @@ public class CustomerSystem : MonoBehaviour
             return;
         }
         Debug.Log("Spawn Wave");
-        au.AssignWaveCustomerUnlocks(waves[waveCount].waveNumber);
+        AssignUnlocks.instance.AssignWaveCustomerUnlocks(waves[waveCount].waveNumber);
         StartCoroutine(WaveSpawn(waves[waveCount].spawnCount));
 
         waveCount++; 
@@ -38,7 +37,7 @@ public class CustomerSystem : MonoBehaviour
         Debug.Log("CoRoutine Started. Will loop: " + custCount + " time(s)");
         for (int i = 0; i < custCount; i++)
         {
-            gc.spawnCustomer();
+            GetCustomer.instance.spawnCustomer();
             yield return new WaitForSeconds(5);
         }
 

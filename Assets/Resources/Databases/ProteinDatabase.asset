@@ -12,8 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8802cd6b335c2b34e91288a466a043a7, type: 3}
   m_Name: ProteinDatabase
   m_EditorClassIdentifier: 
-  slimeDishes: []
+  slimeDishes:
+  - {fileID: 11400000, guid: 3144d9aa695281846a484c718e9c9663, type: 2}
+  - {fileID: 11400000, guid: 0a49fdfeac1500f4e8885219716045f5, type: 2}
+  - {fileID: 11400000, guid: 9ce213be788e29941af414ff18559b3b, type: 2}
   cockDishes:
-  - {fileID: 11400000, guid: 74e4919bca26fcc438c98981673c1e65, type: 2}
   - {fileID: 11400000, guid: 58a3fa4547203e54bb073478d386ae45, type: 2}
-  beholderDishes: []
+  - {fileID: 11400000, guid: 16cd1403be63e7e4f8a2aa167a06f319, type: 2}
+  - {fileID: 11400000, guid: 74e4919bca26fcc438c98981673c1e65, type: 2}
+  beholderDishes:
+  - {fileID: 11400000, guid: 000ae8d7d1c560a49b78c50542cab025, type: 2}
+  - {fileID: 11400000, guid: d46c85aeeb4281f4ca8c89e27acd4804, type: 2}
+  - {fileID: 11400000, guid: 9da3ef3fb3a9e844b9b5c26f9f617429, type: 2}

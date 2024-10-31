@@ -4,30 +4,48 @@ using System.Collections;
 
 public class CounterManager : MonoBehaviour
 {
-    [Header("Script Gets")]
-    [SerializeField] TicketManager tm;
-    [SerializeField] DiningManager dm;
-
     [Header("Canvas Gets")]
     [SerializeField] GameObject orderBox;
     [SerializeField] TextMeshProUGUI orderDescription;
 
+    bool wait = false;
+
+    public static CounterManager instance;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     public void TakeOrder()
     {
-        orderBox.SetActive(true);
-        CustomerControl cc = dm.counter.GetComponent<CustomerControl>();
-        orderDescription.text = cc.PlaceOrder();
+        if (!wait)
+        {
+            wait = true;
+            orderBox.SetActive(true);
+            CustomerControl cc = DiningManager.instance.counter.GetComponent<CustomerControl>();
+            orderDescription.text = cc.PlaceOrder();
 
-        tm.CreateTicket(cc);
+            TicketManager.instance.CreateTicket(cc);
 
-        StartCoroutine(TakeASeat());
+            StartCoroutine(TakeASeat());
+        }        
     }
 
     IEnumerator TakeASeat()
     {
         yield return new WaitForSeconds(3f);
-        dm.SitDown();
-        tm.TicketToLine();
+        DiningManager.instance.SitDown();
+        TicketManager.instance.TicketToLine();
         orderBox.SetActive(false);
+        wait = false;
+    }
+
+    public void ReviewOrder()
+    {
+        orderBox.SetActive(true);
+        CustomerControl cc = DiningManager.instance.pickup.GetComponent<CustomerControl>();
+        orderDescription.text = cc.VoiceReview();
     }
 }

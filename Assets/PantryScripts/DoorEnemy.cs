@@ -42,7 +42,6 @@ public class DoorEnemy : MonoBehaviour
         yield return new WaitForSeconds(attkInterval);
         damageDoor.EnemyAttacksOverTime(ticks);
         StartCoroutine(Damage(interval));
-        Debug.Log("RoutineRepeat");
     }
 
 

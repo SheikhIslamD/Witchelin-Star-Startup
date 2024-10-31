@@ -1,16 +1,26 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class TicketManager : MonoBehaviour
 {
     [Header("Order Management")]
-    [SerializeField] GameObject[] tickets = new GameObject[10];
+    public GameObject[] tickets = new GameObject[10];
     [SerializeField] Transform[] spots = new Transform[10];
     [SerializeField] GameObject ticketPrefab;
 
     [Header("Button Management")]
         
     int ticketCount = 0;
+
+    public static TicketManager instance;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     public void CreateTicket(CustomerControl guestInfo)
     {
         GameObject ticket = Instantiate(ticketPrefab, GameObject.FindGameObjectWithTag("TicketCanvas").transform);
@@ -36,7 +46,7 @@ public class TicketManager : MonoBehaviour
     {
         if (tickets[ticketNumber] != null)
         {
-            Destroy(tickets[ticketNumber]);
+            Destroy(tickets.ElementAt(ticketNumber));
             tickets[ticketNumber] = null;
         }
     }

@@ -20,7 +20,8 @@ public class Cameras : MonoBehaviour
     InputAction next;
     InputAction back;
 
-    public bool dining = false; 
+    public static bool dining = false;
+    public static bool toggle = false;
 
     //for making this a singleton
     public static Cameras instance;

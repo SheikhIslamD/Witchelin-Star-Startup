@@ -8,6 +8,7 @@ public class CustomerControl : MonoBehaviour
 
     [Header("Customer Order")]
     public Protein customerOrder;
+    public string customerReview;
     [Space(10)]
 
 
@@ -18,19 +19,18 @@ public class CustomerControl : MonoBehaviour
     bool counter = false;
 
     [Header("Script Managers")]
-    DiningManager dm;
+    //DiningManager dm;
     TicketManager tm;
 
     void Start()
     {
         patienceCurrent = patienceMax;
-        dm = GameObject.FindGameObjectWithTag("DiningRoom").GetComponent<DiningManager>();
         tm = GameObject.FindGameObjectWithTag("TicketManager").GetComponent<TicketManager>(); 
     }
 
     void Update()
     {
-        if (dm.counter == gameObject)
+        if (DiningManager.instance.counter == gameObject)
         {
             if (!counter)
             {
@@ -51,7 +51,7 @@ public class CustomerControl : MonoBehaviour
 
         if (patienceCurrent <= 0)
         {
-            dm.GuestLeaves(gameObject);
+            DiningManager.instance.GuestLeaves(gameObject);
             tm.DestroyTicket(customerNumber);
 
             // Make this an animation
@@ -94,6 +94,7 @@ public class CustomerControl : MonoBehaviour
             {
                 //
                 Debug.Log("You gave me the wrong dish!");
+                customerReview = "You gave me the wrong dish!";
                 ChunkPatience();
                 return false;
             }
@@ -102,13 +103,16 @@ public class CustomerControl : MonoBehaviour
             {
                 case 0:
                     Debug.Log("This is under cooked!");
+                    customerReview = "This is under cooked!";
                     ChunkPatience();
                     return false;
                 case 1:
                     Debug.Log("This is Perfect!");
+                    customerReview = "This is Perfect!";
                     return true;
                 case 2:
                     Debug.Log("This was cooked way too long!");
+                    customerReview = "This was cooked way too long!";
                     ChunkPatience();
                     return false;
                 default:
@@ -118,5 +122,12 @@ public class CustomerControl : MonoBehaviour
 
         }
         return false;
+    }
+
+    public string VoiceReview()
+    {
+
+        Debug.Log("" + customerReview);
+        return ("" + customerReview);
     }
 }
