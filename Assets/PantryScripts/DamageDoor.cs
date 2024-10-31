@@ -40,7 +40,8 @@ public class DamageDoor : MonoBehaviour
                 dmgOverTimeTick[i]--;
             }
             doorHealthScript.health -= 1;
-            healthDisplay.text = doorHealthScript.health.ToString();
+            healthDisplay.text = "health: "+ doorHealthScript.health;
+            Debug.Log(doorHealthScript.health);
             dmgOverTimeTick.RemoveAll(i => i == 0);
             yield return new WaitForSeconds(0.75f);
         }
