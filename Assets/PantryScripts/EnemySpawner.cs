@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator spawnEnemy(float interval, GameObject enemy)
     {
         yield return new WaitForSeconds(spawnInterval);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(-5.54356146f, 3.77999997f, -7.71999979f), Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemy, this.gameObject.transform.position, Quaternion.identity);
         
     }
 }

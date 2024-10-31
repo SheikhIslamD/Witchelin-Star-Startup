@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2305217936591464733}
   - component: {fileID: 2819673205834150691}
   m_Layer: 0
-  m_Name: EnemyPlaceHolder
+  m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,6 +126,8 @@ MonoBehaviour:
   maxHealth: 3
   attkInterval: 5
   damageDoor: {fileID: 2819673205834150691}
+  ticks: 1
+  monster: Slime
 --- !u!114 &2819673205834150691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,4 +140,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578cf636719fa424e88e3a7d55df27e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthDisplay: {fileID: 0}
   dmgOverTimeTick: 00000000

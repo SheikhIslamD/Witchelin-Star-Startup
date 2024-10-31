@@ -14,12 +14,31 @@ public class DoorEnemy : MonoBehaviour
     [SerializeField] private float attkInterval = 3.5f;
     public DamageDoor damageDoor;
     public int ticks;
+    private DoorHealth doorHealth;
+    public string monster;
 
     //Enemy Health on Start
     private void Start()
     {
         StartCoroutine(Damage(attkInterval));
         health = maxHealth;
+
+        switch (monster)
+        {
+            case "Slime":
+                doorHealth = GameObject.Find("Cabniet").GetComponent<DoorHealth>();
+                attkInterval = 1f;
+                break;
+            case "Cockatrice":
+                doorHealth = GameObject.Find("CageWindow").GetComponent<DoorHealth>();
+                attkInterval = 3.5f;
+                break;
+            case "Beholder":
+                doorHealth = GameObject.Find("PantryDoor").GetComponent<DoorHealth>();
+                attkInterval = 5f;
+                break;
+        }
+
     }
 
     //Enemy Takes Damage Destroy
@@ -42,6 +61,8 @@ public class DoorEnemy : MonoBehaviour
         yield return new WaitForSeconds(attkInterval);
         damageDoor.EnemyAttacksOverTime(ticks);
         StartCoroutine(Damage(interval));
+        Debug.Log("RoutineRepeat");
+        doorHealth.health -= 1;
     }
 
 

@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 13821549}
   - component: {fileID: 13821548}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: EnemySpawnerB
   m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56febbcfa5440484088b0b28d11ac04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 3243127381813367673, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
+  spawnPrefab: {fileID: 7128861417807195403, guid: 9148f35b602172b47b5e39d7124b60fd, type: 3}
   spawnInterval: 5
 --- !u!4 &13821549
 Transform:
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 61658746}
   - component: {fileID: 61658749}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: CageWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,6 +299,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yourButton: {fileID: 61658746}
+  Monsters: []
+  targetSpawn: Cockatrice
 --- !u!1 &252003183
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +756,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781755121}
   m_CullTransparentMesh: 1
+--- !u!1 &939421310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 939421312}
+  - component: {fileID: 939421311}
+  m_Layer: 0
+  m_Name: EnemySpawner C
+  m_TagString: Spawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &939421311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939421310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56febbcfa5440484088b0b28d11ac04b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 1423625185601861373, guid: 34f07d7128e34a441b122e764d0f433a, type: 3}
+  spawnInterval: 3.5
+--- !u!4 &939421312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939421310}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.11, y: 3.78, z: -7.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &991777178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -842,7 +890,7 @@ GameObject:
   - component: {fileID: 1386208644}
   - component: {fileID: 1386208645}
   m_Layer: 5
-  m_Name: Button
+  m_Name: PantryDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -975,6 +1023,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yourButton: {fileID: 1386208641}
+  Monsters: []
+  targetSpawn: Beholder
 --- !u!114 &1386208645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1440,7 +1490,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dmg 1
+  m_text: 'Health:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1533,7 +1583,7 @@ GameObject:
   - component: {fileID: 1936843103}
   - component: {fileID: 1936843102}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Cabniet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1572,6 +1622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yourButton: {fileID: 1936843103}
+  Monsters: []
+  targetSpawn: Slime
 --- !u!114 &1936843103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1654,6 +1706,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936843100}
   m_CullTransparentMesh: 1
+--- !u!1 &2054360431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2054360433}
+  - component: {fileID: 2054360432}
+  m_Layer: 0
+  m_Name: EnemySpawner S
+  m_TagString: Spawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2054360432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054360431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56febbcfa5440484088b0b28d11ac04b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 3243127381813367673, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
+  spawnInterval: 1
+--- !u!4 &2054360433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054360431}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.89, y: 3.78, z: -7.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1664,3 +1762,5 @@ SceneRoots:
   - {fileID: 337130870}
   - {fileID: 252003186}
   - {fileID: 13821549}
+  - {fileID: 2054360433}
+  - {fileID: 939421312}
