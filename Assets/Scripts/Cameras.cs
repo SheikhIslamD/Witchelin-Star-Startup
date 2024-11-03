@@ -56,21 +56,24 @@ public class Cameras : MonoBehaviour
     //save lines and cleanup later by switching Cam() code to be like CanvasSwap() code?
     void Update()
     {
-        if (previous.WasPerformedThisFrame())
+        if (!Menus.instance.gameIsPaused)
         {
-            PantryCam();
-        }
-        if (middle.WasPerformedThisFrame())
-        {
-            KitchenCam();
-        }
-        if (next.WasPerformedThisFrame())
-        {
-            DiningCam();
-        }
-        if (back.WasPerformedThisFrame())
-        {
-            EverythingCam();
+            if (previous.WasPerformedThisFrame())
+            {
+                PantryCam();
+            }
+            if (middle.WasPerformedThisFrame())
+            {
+                KitchenCam();
+            }
+            if (next.WasPerformedThisFrame())
+            {
+                DiningCam();
+            }
+            if (back.WasPerformedThisFrame())
+            {
+                EverythingCam();
+            }
         }
     }
 

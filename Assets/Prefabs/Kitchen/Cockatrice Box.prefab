@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4728800612757797966
+--- !u!1001 &2552380222267713757
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2639247120308450575, guid: ba906f9c39ec4f04f88adb83c3102f4b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4287995080094608236, guid: ba906f9c39ec4f04f88adb83c3102f4b, type: 3}
       propertyPath: m_Pivot.x
@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4287995080094608236, guid: ba906f9c39ec4f04f88adb83c3102f4b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 30
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 4287995080094608236, guid: ba906f9c39ec4f04f88adb83c3102f4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -94,15 +94,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4824601571098541850, guid: ba906f9c39ec4f04f88adb83c3102f4b, type: 3}
       propertyPath: m_text
-      value: Steak Box
+      value: Cockatrice
       objectReference: {fileID: 0}
     - target: {fileID: 8192749858864322718, guid: ba906f9c39ec4f04f88adb83c3102f4b, type: 3}
       propertyPath: ingredientNumber
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9069345353176090548, guid: ba906f9c39ec4f04f88adb83c3102f4b, type: 3}
       propertyPath: m_Name
-      value: Steak Box Variant
+      value: Cockatrice Box
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

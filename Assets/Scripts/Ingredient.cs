@@ -15,16 +15,16 @@ public class Ingredient : MonoBehaviour
     public int cookState = 0;
 
     public Sprite proteinSprite;
-
-    public Sprite[] resultSprites;
     [Space(10)]
 
     [Header("Dish Information")]
     public string dishName;
     public int cookMethod;
-    public bool isPlated;
     public Sprite dishSprite;
 
+    public Sprite[] resultSprites;
+
+    public bool isPlated;
     public Sprite[] cockDishSprites;
     public Sprite[] slimeDishSprites;
     public Sprite[] beholderDishSprites;
@@ -33,16 +33,18 @@ public class Ingredient : MonoBehaviour
 
     void Start()
     {
+        //assign all values from scriptable object
         IngredientName = protein.IngredientName;
         cookMin = protein.cookMin;
         cookMax = protein.cookMax;
         cookState = protein.cookState;
         proteinSprite = protein.proteinSprite;
-        resultSprites = protein.resultSprites;
 
         dishName = protein.dishName;
         cookMethod = protein.cookMethod;
         dishSprite = protein.dishSprite;
+
+        resultSprites = protein.resultSprites;
 
 
         image = GetComponent<Image>();

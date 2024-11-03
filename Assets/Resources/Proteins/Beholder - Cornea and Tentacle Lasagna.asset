@@ -19,5 +19,5 @@ MonoBehaviour:
   proteinSprite: {fileID: 0}
   dishName: Cornea and Tentacle Lasagna
   cookMethod: 0
-  dishSprite: {fileID: 0}
+  dishSprite: {fileID: 21300000, guid: c15df2adc19026b4bbed81e49f8d7106, type: 3}
   resultSprites: []
