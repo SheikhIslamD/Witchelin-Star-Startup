@@ -64,6 +64,13 @@ public class CustomerControl : MonoBehaviour
 
                 if (patienceCurrent <= 0)
                 {
+                    if (gameObject.name == "The King")
+                    {
+                        //End Game
+                        Phases.instance.FinishGame("lose");
+                    }
+
+                    CustomerSystem.instance.playerReviewHealth--;
                     DiningManager.instance.GuestLeaves(gameObject);
                     tm.DestroyTicket(customerNumber);
 
@@ -125,6 +132,13 @@ public class CustomerControl : MonoBehaviour
                 case 1:
                     Debug.Log("This is Perfect!");
                     customerReview = "This is Perfect!";
+                    // IF king win
+                    if (gameObject.name == "The King")
+                    {
+                        //End Game
+                        Phases.instance.FinishGame("win");
+                    }
+
                     return true;
                 case 2:
                     Debug.Log("This was cooked way too long!");

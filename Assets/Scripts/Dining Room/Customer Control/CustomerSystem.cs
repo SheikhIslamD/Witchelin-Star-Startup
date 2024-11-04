@@ -5,6 +5,7 @@ public class CustomerSystem : MonoBehaviour
 {
     public Wave[] waves = new Wave[2];
     public int waveCount = 0;
+    public int playerReviewHealth = 3;
 
     public static CustomerSystem instance;
     // Need to spawn a customer and have them place an order
@@ -17,6 +18,14 @@ public class CustomerSystem : MonoBehaviour
 
         waves = Resources.LoadAll<Wave>("Wave");
         Debug.Log(waves.Length + " Waves.");
+    }
+
+    void update()
+    {
+        if (playerReviewHealth <= 0)
+        {
+            Phases.instance.FinishGame("lose");
+        }
     }
 
     public void StartNextWave()

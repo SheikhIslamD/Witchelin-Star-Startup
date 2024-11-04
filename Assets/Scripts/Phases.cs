@@ -7,7 +7,17 @@ public class Phases : MonoBehaviour
     public float breakfastTime;
     public float lunchTime;
     public float dinnerTime;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public static Phases instance;
+    // Need to spawn a customer and have them place an order
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         StartCoroutine(Breakfast(breakfastTime));
@@ -28,11 +38,16 @@ public class Phases : MonoBehaviour
     IEnumerator Dinner(float dinnerTime)
     {
         yield return new WaitForSeconds(dinnerTime);
-        FinishGame();
     }
 
-    public void FinishGame()
+    public void FinishGame(string result)
     {
-
+        switch(result)
+        {
+            case "win":
+                break;
+            case "lose":
+                break;
+        }
     }
 }
