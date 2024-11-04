@@ -16,8 +16,11 @@ MonoBehaviour:
   cookMin: 1
   cookMax: 2
   cookState: 0
-  proteinSprite: {fileID: 0}
+  proteinSprite: {fileID: 21300000, guid: dcfd0f621c482aa40aabc4d84185d597, type: 3}
   dishName: Fried Glop
   cookMethod: 2
   dishSprite: {fileID: 21300000, guid: d28575bbc3455784984d94cb1c578ded, type: 3}
-  resultSprites: []
+  resultSprites:
+  - {fileID: 21300000, guid: dcfd0f621c482aa40aabc4d84185d597, type: 3}
+  - {fileID: 21300000, guid: d28575bbc3455784984d94cb1c578ded, type: 3}
+  - {fileID: 21300000, guid: 3d8f1acaab7ec3744b899683c10684ec, type: 3}

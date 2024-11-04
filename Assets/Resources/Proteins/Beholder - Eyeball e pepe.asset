@@ -16,8 +16,11 @@ MonoBehaviour:
   cookMin: 1
   cookMax: 2
   cookState: 0
-  proteinSprite: {fileID: 0}
+  proteinSprite: {fileID: 21300000, guid: 9b98da0f057c017489bef3de7c5b3932, type: 3}
   dishName: Eyeball e pepe
   cookMethod: 1
   dishSprite: {fileID: 21300000, guid: d020b4e0c2a999b47a22b83710d43af2, type: 3}
-  resultSprites: []
+  resultSprites:
+  - {fileID: 21300000, guid: 9b98da0f057c017489bef3de7c5b3932, type: 3}
+  - {fileID: 21300000, guid: d020b4e0c2a999b47a22b83710d43af2, type: 3}
+  - {fileID: 21300000, guid: 3d8f1acaab7ec3744b899683c10684ec, type: 3}
