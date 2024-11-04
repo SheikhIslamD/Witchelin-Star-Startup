@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2305217936591464733, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
+      propertyPath: monster
+      value: Slime
+      objectReference: {fileID: 0}
     - target: {fileID: 3243127381813367673, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
       propertyPath: m_Name
       value: Slime

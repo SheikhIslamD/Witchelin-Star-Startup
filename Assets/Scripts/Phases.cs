@@ -8,6 +8,9 @@ public class Phases : MonoBehaviour
     public float lunchTime;
     public float dinnerTime;
 
+    public GameObject winScreen;
+    public GameObject loseScreen;
+
     public static Phases instance;
     // Need to spawn a customer and have them place an order
     void Awake()
@@ -21,6 +24,8 @@ public class Phases : MonoBehaviour
     void Start()
     {
         StartCoroutine(Breakfast(breakfastTime));
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
     }
 
     IEnumerator Breakfast(float breakfastTime)
@@ -45,8 +50,10 @@ public class Phases : MonoBehaviour
         switch(result)
         {
             case "win":
+                winScreen.SetActive(true);
                 break;
             case "lose":
+                loseScreen.SetActive(true);
                 break;
         }
     }
