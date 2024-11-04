@@ -9,11 +9,8 @@ using UnityEngine.Events;
 
 public class DoorEnemy : MonoBehaviour 
 {
-    UnityEvent<float> m_BroadcastDamage;
     [SerializeField] float health, maxHealth = 3f;
     [SerializeField] private float attkInterval = 3.5f;
-    public DamageDoor damageDoor;
-    public int ticks;
     private DoorHealth doorHealth;
     public string monster;
 
@@ -39,6 +36,7 @@ public class DoorEnemy : MonoBehaviour
                 break;
             case "Beholder":
                 doorHealth = GameObject.Find("PantryDoor").GetComponent<DoorHealth>();
+                Debug.Log("Beholder found PantryDoor!");
                 attkInterval = 5f;
                 break;
         }
@@ -63,7 +61,6 @@ public class DoorEnemy : MonoBehaviour
     private IEnumerator Damage(float interval)
     {
         yield return new WaitForSeconds(attkInterval);
-        damageDoor.EnemyAttacksOverTime(ticks);
         StartCoroutine(Damage(interval));
         Debug.Log("RoutineRepeat");
         doorHealth.health -= 1;
