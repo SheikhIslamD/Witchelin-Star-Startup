@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject spawnPrefab;
     [SerializeField] private float spawnInterval = 3.5f;
 
-    private bool firstKill = false;
+    private static bool firstKill = false;
     private bool slimeGate, cockGate, beholderGate = false;
         
     public void SpawnEnemyCountdownBegin()
@@ -28,11 +28,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public void CheckSpawns()
-    {
-        if (!firstKill)
-        {
-            CustomerSystem.instance.StartNextWave();            
-        }
+    {     
 
         switch(spawnPrefab.name)
         {
@@ -57,6 +53,11 @@ public class EnemySpawner : MonoBehaviour
                     AssignUnlocks.instance.AssignDishUnlocks(spawnPrefab.name);
                 }
                 break;
+        }
+
+        if (!firstKill)
+        {
+            CustomerSystem.instance.StartNextWave();            
         }
     }
 }
