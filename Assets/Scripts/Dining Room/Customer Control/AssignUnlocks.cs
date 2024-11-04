@@ -62,6 +62,7 @@ public class AssignUnlocks : MonoBehaviour
         }
         
         Debug.Log("Avaliable Customer Count: " + waveCustomers.Count);
+        DiningManager.instance.customersLeft = waveCustomers.Count;
     }
 
     public void AssignDishUnlocks(string protein)
@@ -74,7 +75,7 @@ public class AssignUnlocks : MonoBehaviour
             case "Cockatrice":
                 unlockedDishes.AddRange(p_Database.cockDishes);
                 break;
-            case "Behold":
+            case "Beholder":
                 unlockedDishes.AddRange(p_Database.beholderDishes);
                 break;
             default:

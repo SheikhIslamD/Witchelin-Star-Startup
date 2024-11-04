@@ -1,12 +1,14 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 
 public class CounterManager : MonoBehaviour
 {
     [Header("Canvas Gets")]
     [SerializeField] GameObject orderBox;
     [SerializeField] TextMeshProUGUI orderDescription;
+    [SerializeField] Button takeOrderButton;
 
     bool wait = false;
 
@@ -23,6 +25,7 @@ public class CounterManager : MonoBehaviour
         if (!wait)
         {
             wait = true;
+            takeOrderButton.enabled = true;
             orderBox.SetActive(true);
             CustomerControl cc = DiningManager.instance.counter.GetComponent<CustomerControl>();
             orderDescription.text = cc.PlaceOrder();
@@ -39,12 +42,14 @@ public class CounterManager : MonoBehaviour
         DiningManager.instance.SitDown();
         TicketManager.instance.TicketToLine();
         orderBox.SetActive(false);
+        takeOrderButton.enabled = false;
         wait = false;
     }
 
     public void ReviewOrder()
     {
         orderBox.SetActive(true);
+        takeOrderButton.enabled = false;
         CustomerControl cc = DiningManager.instance.pickup.GetComponent<CustomerControl>();
         orderDescription.text = cc.VoiceReview();
     }

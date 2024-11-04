@@ -23,6 +23,7 @@ public class DiningManager : MonoBehaviour
     int tabled = 0;
     int waiting = 0;
     int lineOrder = 0;
+    public int customersLeft;
 
     [Header("Canvas")]
     [SerializeField] Canvas canvas;
@@ -146,9 +147,10 @@ public class DiningManager : MonoBehaviour
         {
             CounterManager.instance.ReviewOrder();
             yield return new WaitForSeconds(3);
+            pickupScript.sr.sprite = pickupScript.customerMood[0];
 
-            avaliableTables.Add(takenTables[ticketNumber]);
-            takenTables.Remove(takenTables.ElementAt(ticketNumber));
+            //avaliableTables.Add(takenTables[ticketNumber]);
+            //takenTables.Remove(takenTables.ElementAt(ticketNumber));
             //Whatever other happy result functions;
             Destroy(TicketManager.instance.tickets.ElementAt(ticketNumber));
 
@@ -156,11 +158,14 @@ public class DiningManager : MonoBehaviour
             pickup = null;
             
             Destroy(tables.ElementAt(ticketNumber));
+
+            customersLeft--;
         }
         else
         {
             CounterManager.instance.ReviewOrder();
             yield return new WaitForSeconds(3);
+            pickupScript.sr.sprite = pickupScript.customerMood[0];
 
 
             tables[ticketNumber] = pickup;
@@ -189,5 +194,7 @@ public class DiningManager : MonoBehaviour
                 }
             }
         }
+
+        customersLeft--;
     }
 }

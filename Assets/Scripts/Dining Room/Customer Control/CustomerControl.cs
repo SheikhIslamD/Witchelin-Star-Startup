@@ -5,6 +5,7 @@ public class CustomerControl : MonoBehaviour
     [Header("Customer Identifiers")]
     public int customerNumber;
     public Sprite customerSprite;
+    public SpriteRenderer sr;
     public Sprite[] customerMood = new Sprite[3]; 
     [Space(10)]
 
@@ -32,7 +33,7 @@ public class CustomerControl : MonoBehaviour
 
     void Update()
     {
-        if (DiningManager.instance.counter == gameObject)
+        if (DiningManager.instance.counter == gameObject || DiningManager.instance.pickup == gameObject)
         {
             if (!counter)
             {
@@ -49,17 +50,15 @@ public class CustomerControl : MonoBehaviour
     void PatienceManager()
     {        
         patienceCurrent -= patienceRate * Time.deltaTime;
-        if (patienceCurrent > patienceMax / 2)
+        
+        if (patienceCurrent <= patienceMax / 2)
         {
-            customerSprite = customerMood[0];
-        }
-        else if (patienceCurrent <= patienceMax / 2)
-        {
-            customerSprite = customerMood[1];
-
-            if (patienceMax <= patienceMax / 4)
+            Debug.Log("Under Half");
+            if (patienceCurrent <= patienceMax / 3)
             {
+                Debug.Log("Get Mad");
                 customerSprite = customerMood[2];
+                sr.sprite = customerSprite;
 
                 if (patienceCurrent <= 0)
                 {
@@ -67,6 +66,11 @@ public class CustomerControl : MonoBehaviour
                     {
                         //End Game
                         Phases.instance.FinishGame("lose");
+                    }
+
+                    if (CustomerSystem.instance.everoneSpawned && DiningManager.instance.customersLeft == 1)
+                    {
+                        CustomerSystem.instance.StartNextWave();
                     }
 
                     CustomerSystem.instance.playerReviewHealth--;
@@ -83,7 +87,14 @@ public class CustomerControl : MonoBehaviour
 
     void ChunkPatience()
     {
+        if (gameObject.name == "The King")
+        {
+            //End Game
+            Phases.instance.FinishGame("lose");
+        }
+
         patienceCurrent -= patienceMax / 5;
+        sr.sprite = customerMood[2];
     }
 
     // Give this specific Gameobject data from the selected Scriptable Object
@@ -114,7 +125,6 @@ public class CustomerControl : MonoBehaviour
         {
             if(given.dishName != customerOrder.dishName)
             {
-                //
                 Debug.Log("You gave me the wrong dish!");
                 customerReview = "You gave me the wrong dish!";
                 ChunkPatience();
@@ -131,6 +141,7 @@ public class CustomerControl : MonoBehaviour
                 case 1:
                     Debug.Log("This is Perfect!");
                     customerReview = "This is Perfect!";
+                    sr.sprite = customerMood[0];
                     // IF king win
                     if (gameObject.name == "The King")
                     {
@@ -138,7 +149,7 @@ public class CustomerControl : MonoBehaviour
                         Phases.instance.FinishGame("win");
                     }
 
-                    if (CustomerSystem.instance.everoneSpawned)
+                    if (CustomerSystem.instance.everoneSpawned && DiningManager.instance.customersLeft == 1)
                     {
                         CustomerSystem.instance.StartNextWave();
                     }
