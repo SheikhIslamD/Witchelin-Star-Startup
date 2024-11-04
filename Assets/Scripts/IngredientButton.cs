@@ -20,6 +20,7 @@ public class IngredientButton : MonoBehaviour
             GameObject item = Instantiate(ingredientPrefab);
             item.GetComponent<Ingredient>().protein = ingredients[ingredientNumber];
             //run an Ingredient.ingredientUpdate() here if the protein values dont assign on awake
+            //item.GetComponent<Ingredient>().IngredientUpdate();
             PlayerHands.instance.PickUp(item);
             PlayerHands.instance.handsFull = true;
             

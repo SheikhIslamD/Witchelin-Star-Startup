@@ -26,7 +26,6 @@ public class Cooking : MonoBehaviour
 
     public GameObject Pickup;
 
-    public GameObject platedTransform;
     public GameObject cookingTransform;
 
     //new cooking system
@@ -57,6 +56,7 @@ public class Cooking : MonoBehaviour
             PlayerHands.instance.PutDown();
             whatsCooking.transform.SetParent(cookingTransform.transform, true);
             whatsCooking.transform.position = cookingTransform.transform.position;
+            whatsCooking.transform.localScale = new Vector3(0.65f, 0.65f, 0.65f);
             //begin the cooking coroutine and allow picking up the item
             BeginCooking(0);
             Pickup.SetActive(true);
@@ -102,20 +102,21 @@ public class Cooking : MonoBehaviour
             if (cookTime < whatsCooking.GetComponent<Ingredient>().cookMin)
             {
                 whatsCooking.GetComponent<Ingredient>().cookState = 0;
+                whatsCooking.GetComponent<Ingredient>().CookUpdate(0);
                 timeSliderColor.color = Color.red;
             }
             //making the food item take on the proper cook state, if higher than min but below max then it's perfectly cooked
             if (cookTime >= whatsCooking.GetComponent<Ingredient>().cookMin && cookTime <= whatsCooking.GetComponent<Ingredient>().cookMax)
             {
                 whatsCooking.GetComponent<Ingredient>().cookState = 1;
-                whatsCooking.GetComponent<Ingredient>().CookUpdate();
+                whatsCooking.GetComponent<Ingredient>().CookUpdate(1);
                 timeSliderColor.color = Color.green;
             }
             //make it burnt if it goes to max cooktime and make currentlycooking off
             if (cookTime > whatsCooking.GetComponent<Ingredient>().cookMax)
             {
                 whatsCooking.GetComponent<Ingredient>().cookState = 2;
-                whatsCooking.GetComponent<Ingredient>().CookUpdate();
+                whatsCooking.GetComponent<Ingredient>().CookUpdate(2);
                 timeSliderColor.color = Color.black;
                 StopCooking();
             }
@@ -131,23 +132,6 @@ public class Cooking : MonoBehaviour
             whatsCooking = null;
             Pickup.SetActive(false);
         }
-    }
-
-    public void Plating()
-    {
-        GameObject platedfood = PlayerHands.instance.heldItem;
-        //update ingredient to reflect plated appearance according to current station's cookMethod 
-        platedfood.GetComponent<Ingredient>().PlatingUpdate();
-        PlayerHands.instance.PutDown();
-        platedfood.transform.SetParent(platedTransform.transform, true);
-        platedfood.transform.position = platedTransform.transform.position;
-    }
-
-    public void Trashcan()
-    {
-        Destroy(PlayerHands.instance.heldItem);
-        PlayerHands.instance.PutDown();
-        Debug.Log("Item trashed");
     }
 
     /*    void Update()

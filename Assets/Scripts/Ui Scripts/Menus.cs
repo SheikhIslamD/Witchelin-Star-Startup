@@ -53,7 +53,6 @@ public class Menus : MonoBehaviour
     public void MainMenu()
     {
         mainMenu.enabled = true;
-        PauseGame();
     }
 
     public void Retry()
