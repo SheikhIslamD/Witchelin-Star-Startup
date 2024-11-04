@@ -4,7 +4,7 @@ using UnityEngine;
 public class CustomerSystem : MonoBehaviour
 {
     public Wave[] waves = new Wave[2];
-    public int waveCount = 0;
+    public int waveCount = 1;
     public int waveSpawnCount = 0;
     public int playerReviewHealth = 3;
 

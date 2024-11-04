@@ -75,6 +75,11 @@ public class Cameras : MonoBehaviour
                 EverythingCam();
             }
         }
+
+        if (DiningManager.instance.reviewing || CounterManager.instance.wait)
+        {
+            DiningCam();
+        }
     }
 
     public void PantryCam()

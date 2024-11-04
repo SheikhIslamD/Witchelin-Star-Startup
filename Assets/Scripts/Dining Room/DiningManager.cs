@@ -25,6 +25,8 @@ public class DiningManager : MonoBehaviour
     int lineOrder = 0;
     public int customersLeft;
 
+    public bool reviewing;
+
     [Header("Canvas")]
     [SerializeField] Canvas canvas;
     [SerializeField] TextMeshProUGUI guestName;
@@ -141,6 +143,8 @@ public class DiningManager : MonoBehaviour
 
     IEnumerator ToPickupCounter(int ticketNumber)
     {
+        reviewing = true;
+
         CustomerControl pickupScript = pickup.GetComponent<CustomerControl>();
 
         if (pickupScript.ReviewOrder(PlayerHands.instance.heldItem.GetComponent<Ingredient>()))
@@ -148,6 +152,14 @@ public class DiningManager : MonoBehaviour
             CounterManager.instance.ReviewOrder();
             yield return new WaitForSeconds(3);
             pickupScript.sr.sprite = pickupScript.customerMood[0];
+
+            //King check
+            Debug.Log("Customer name is: " + pickup.name);
+            if (pickup.name == "The King")
+            {
+                Phases.instance.FinishGame("win");
+            }
+
 
             //avaliableTables.Add(takenTables[ticketNumber]);
             //takenTables.Remove(takenTables.ElementAt(ticketNumber));
@@ -161,6 +173,13 @@ public class DiningManager : MonoBehaviour
 
             customersLeft--;
 
+            Destroy(PlayerHands.instance.heldItem);
+            PlayerHands.instance.PutDown();
+
+            reviewing = false;
+
+            yield return new WaitForSeconds(3);
+
             if (CustomerSystem.instance.everoneSpawned && DiningManager.instance.customersLeft <= 0)
             {
                 CustomerSystem.instance.StartNextWave();
@@ -170,16 +189,22 @@ public class DiningManager : MonoBehaviour
         {
             CounterManager.instance.ReviewOrder();
             yield return new WaitForSeconds(3);
-            pickupScript.sr.sprite = pickupScript.customerMood[0];
+            pickupScript.sr.sprite = pickupScript.customerMood[1];
 
+            if (pickup.name == "The King")
+            {
+                Phases.instance.FinishGame("lose");
+            }
 
             tables[ticketNumber] = pickup;
             tables[ticketNumber].transform.position = takenTables.ElementAt(ticketNumber).position;
             pickup = null;
-        }
 
-        Destroy(PlayerHands.instance.heldItem);
-        PlayerHands.instance.PutDown();
+            Destroy(PlayerHands.instance.heldItem);
+            PlayerHands.instance.PutDown();
+
+            reviewing = false;
+        }        
     }
 
     public void GuestLeaves(GameObject guestName)
