@@ -196,5 +196,6 @@ public class DiningManager : MonoBehaviour
         }
 
         customersLeft--;
+        Debug.Log("Oh no! someone left! current lives: " + CustomerSystem.instance.playerReviewHealth);
     }
 }
