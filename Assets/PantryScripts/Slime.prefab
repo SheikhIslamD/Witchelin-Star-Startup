@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4521715986445706628
+--- !u!1001 &148747933768687518
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,22 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2305217936591464733, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
-      propertyPath: health
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2305217936591464733, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
-      propertyPath: monster
-      value: Slime
-      objectReference: {fileID: 0}
-    - target: {fileID: 2305217936591464733, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
-      propertyPath: maxHealth
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2779098516156267788, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b4a7a7ae403a17344acc56ab1bac3ec4, type: 2}
     - target: {fileID: 3243127381813367673, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
       propertyPath: m_Name
       value: Slime
@@ -46,15 +30,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6649981923478332909, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.6816897
       objectReference: {fileID: 0}
     - target: {fileID: 6649981923478332909, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.1844308
       objectReference: {fileID: 0}
     - target: {fileID: 6649981923478332909, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -7.4923286
       objectReference: {fileID: 0}
     - target: {fileID: 6649981923478332909, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -88,10 +72,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b4a7a7ae403a17344acc56ab1bac3ec4, type: 2}
-    - target: {fileID: 7282906422228925665, guid: 874723ed60bd0ca4eb4bb831aef2e76e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1099733722, guid: 89fed86a65ef9cc479ba8de7b9e7831c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
