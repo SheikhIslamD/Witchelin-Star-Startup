@@ -4,6 +4,8 @@ public class CustomerControl : MonoBehaviour
 {
     [Header("Customer Identifiers")]
     public int customerNumber;
+    public Sprite customerSprite;
+    public Sprite[] customerMood = new Sprite[3]; 
     [Space(10)]
 
     [Header("Customer Order")]
@@ -48,15 +50,29 @@ public class CustomerControl : MonoBehaviour
     void PatienceManager()
     {        
         patienceCurrent -= patienceRate * Time.deltaTime;
-
-        if (patienceCurrent <= 0)
+        if (patienceCurrent > patienceMax / 2)
         {
-            DiningManager.instance.GuestLeaves(gameObject);
-            tm.DestroyTicket(customerNumber);
-
-            // Make this an animation
-            Destroy(gameObject);
+            customerSprite = customerMood[0];
         }
+        else if (patienceCurrent <= patienceMax / 2)
+        {
+            customerSprite = customerMood[1];
+
+            if (patienceMax <= patienceMax / 4)
+            {
+                customerSprite = customerMood[2];
+
+                if (patienceCurrent <= 0)
+                {
+                    DiningManager.instance.GuestLeaves(gameObject);
+                    tm.DestroyTicket(customerNumber);
+
+                    // Make this an animation
+                    Destroy(gameObject);
+                }
+            }
+        }
+        
     }
 
     void ChunkPatience()

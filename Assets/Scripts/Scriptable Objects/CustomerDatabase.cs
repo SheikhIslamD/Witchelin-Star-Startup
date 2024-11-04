@@ -5,7 +5,5 @@ using UnityEngine;
 public class CustomerDatabase : ScriptableObject
 {    
     public List<Customer> anytimeCustomers;
-    public List<Customer> morningCustomers;
-    public List<Customer> lunchCustomers;
-    public List<Customer> dinnerCustomers;
+    public List<Customer> theKing;
 }

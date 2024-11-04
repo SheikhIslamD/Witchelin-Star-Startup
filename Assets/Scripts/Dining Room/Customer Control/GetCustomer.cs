@@ -53,6 +53,8 @@ public class GetCustomer : MonoBehaviour
         // Assign the data to the GO
         guestScript.AssignData(selectedCustomer, selectedDish);
         guest.name = selectedCustomer.name;
+        // Assign Sprite Array
+        guestScript.customerMood = selectedCustomer.customerMoods;
         // Put them in line
         DiningManager.instance.AddToLine(guest);
     }

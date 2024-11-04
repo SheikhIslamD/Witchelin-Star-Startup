@@ -20,4 +20,7 @@ MonoBehaviour:
   dishName: Omutrice
   cookMethod: 1
   dishSprite: {fileID: 21300000, guid: 858cecf163803fc41b12317e7621c7d7, type: 3}
-  resultSprites: []
+  resultSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

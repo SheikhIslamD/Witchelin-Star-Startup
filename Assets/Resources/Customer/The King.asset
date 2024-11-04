@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6e06cc8394119440b037992f258000c, type: 3}
-  m_Name: Steve
+  m_Name: The King
   m_EditorClassIdentifier: 
-  customerName: Steve
-  customerSprite: {fileID: -86364688, guid: 2d23e067476c795488e4f8e8058fe25e, type: 3}
+  customerName: The King
+  customerSprite: {fileID: -1467914175, guid: 05c728b0907ce0c4d94e308d5e3ecc01, type: 3}
   customerMoods:
-  - {fileID: -86364688, guid: 2d23e067476c795488e4f8e8058fe25e, type: 3}
-  - {fileID: 385634982, guid: 2d23e067476c795488e4f8e8058fe25e, type: 3}
-  - {fileID: -86364688, guid: 2d23e067476c795488e4f8e8058fe25e, type: 3}
+  - {fileID: -1467914175, guid: 05c728b0907ce0c4d94e308d5e3ecc01, type: 3}
+  - {fileID: -1876307252, guid: 05c728b0907ce0c4d94e308d5e3ecc01, type: 3}
+  - {fileID: 1875253341, guid: 05c728b0907ce0c4d94e308d5e3ecc01, type: 3}
   patienceMax: 100
-  patienceRate: 0.8
+  patienceRate: 1.5

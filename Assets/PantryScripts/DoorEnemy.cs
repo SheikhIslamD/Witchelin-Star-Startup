@@ -17,9 +17,13 @@ public class DoorEnemy : MonoBehaviour
     private DoorHealth doorHealth;
     public string monster;
 
+    EnemySpawner es;
+
     //Enemy Health on Start
     private void Start()
     {
+        es =  GameObject.FindWithTag("Spawner").GetComponent<EnemySpawner>();
+
         StartCoroutine(Damage(attkInterval));
         health = maxHealth;
 
@@ -48,9 +52,9 @@ public class DoorEnemy : MonoBehaviour
 
         if (health <= 0)
         {
-            GameObject.FindWithTag("Spawner").GetComponent<EnemySpawner>().SpawnEnemyCountdownBegin();
-            Destroy(gameObject);
-            
+            es.SpawnEnemyCountdownBegin();
+            es.CheckSpawns();
+            Destroy(gameObject);            
         }
     }
 

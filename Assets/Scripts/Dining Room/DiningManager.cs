@@ -45,11 +45,7 @@ public class DiningManager : MonoBehaviour
     void Start()
     {
         line = new LinkedList<GameObject>();
-        avaliableTables.AddRange(tablePositions);
-
-        // *NEEDS TO BE ADDED* Set variable to begin wave spawner
-        AssignUnlocks.instance.AssignDishUnlocks("Cock");
-        CustomerSystem.instance.StartNextWave();
+        avaliableTables.AddRange(tablePositions);        
     }
 
     void Update()
@@ -79,6 +75,10 @@ public class DiningManager : MonoBehaviour
             waiting--;
             // Move up the other guest
             MoveGuest();
+        }
+        else if (line.Last == null && counter == null && CustomerSystem.instance.waveCount > 0) // might need to add taken tables
+        {
+            CustomerSystem.instance.StartNextWave();
         }
     }
 

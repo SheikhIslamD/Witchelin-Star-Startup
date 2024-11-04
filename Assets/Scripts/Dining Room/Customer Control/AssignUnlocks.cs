@@ -9,6 +9,7 @@ public class AssignUnlocks : MonoBehaviour
     public List<Protein> unlockedDishes;
     [SerializeField] CustomerDatabase c_Database;
     [SerializeField] ProteinDatabase p_Database;
+    bool ready = false;
 
     public static AssignUnlocks instance;
     void Awake()
@@ -24,37 +25,42 @@ public class AssignUnlocks : MonoBehaviour
         waveCustomers = new List<Customer>();
         unlockedDishes = new List<Protein>();
     }
+
     public void AssignWaveCustomerUnlocks(int wave)
     {
         // Empty any Customers in List at start of wave
         waveCustomers.Clear();
         // Add the Anytime Customers
         Debug.Log("Adding Customers");
-        waveCustomers.AddRange(c_Database.anytimeCustomers);
+        //waveCustomers.AddRange(c_Database.anytimeCustomers);
+        ready = true;
         // Based on Time of Day, add other customers
         switch (wave)
         {
             case 0: // Morning Rush
-                if (c_Database.morningCustomers.Count > 0)
+                /*if (c_Database.morningCustomers.Count > 0)
                 {
                     waveCustomers.AddRange(c_Database.morningCustomers);
-                }                
+                }*/
+                waveCustomers.AddRange(c_Database.anytimeCustomers);         
                 break;
             case 1: // Lunch Rush
-                if (c_Database.lunchCustomers.Count > 0)
+                /*if (c_Database.lunchCustomers.Count > 0)
                 {
                     waveCustomers.AddRange(c_Database.lunchCustomers);
-                }
+                }*/
+                waveCustomers.AddRange(c_Database.theKing);
                 break;
             case 2: // Dinner Rush
-                if (c_Database.dinnerCustomers.Count > 0)
+                /*if (c_Database.dinnerCustomers.Count > 0)
                 {
                     waveCustomers.AddRange(c_Database.dinnerCustomers);
-                }
+                }*/
                 break;
             default:
                 break;
         }
+        
         Debug.Log("Avaliable Customer Count: " + waveCustomers.Count);
     }
 
@@ -65,7 +71,7 @@ public class AssignUnlocks : MonoBehaviour
             case "Slime":
                 unlockedDishes.AddRange(p_Database.slimeDishes);
                 break;
-            case "Cock":
+            case "Cockatrice":
                 unlockedDishes.AddRange(p_Database.cockDishes);
                 break;
             case "Behold":
