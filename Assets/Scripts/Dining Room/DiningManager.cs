@@ -76,10 +76,6 @@ public class DiningManager : MonoBehaviour
             // Move up the other guest
             MoveGuest();
         }
-        else if (line.Last == null && counter == null && CustomerSystem.instance.waveCount > 0) // might need to add taken tables
-        {
-            CustomerSystem.instance.StartNextWave();
-        }
     }
 
     void MoveGuest()
@@ -144,10 +140,6 @@ public class DiningManager : MonoBehaviour
 
     IEnumerator ToPickupCounter(int ticketNumber)
     {
-        // Simulate giving them the Order
-        Destroy(PlayerHands.instance.heldItem);
-        PlayerHands.instance.PutDown();
-
         CustomerControl pickupScript = pickup.GetComponent<CustomerControl>();
 
         if (pickupScript.ReviewOrder(PlayerHands.instance.heldItem.GetComponent<Ingredient>()))

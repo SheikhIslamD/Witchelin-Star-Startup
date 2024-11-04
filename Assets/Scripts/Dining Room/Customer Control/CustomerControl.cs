@@ -44,7 +44,6 @@ public class CustomerControl : MonoBehaviour
         {
             PatienceManager();
         }
-
     }
 
     void PatienceManager()
@@ -137,6 +136,11 @@ public class CustomerControl : MonoBehaviour
                     {
                         //End Game
                         Phases.instance.FinishGame("win");
+                    }
+
+                    if (CustomerSystem.instance.everoneSpawned)
+                    {
+                        CustomerSystem.instance.StartNextWave();
                     }
 
                     return true;

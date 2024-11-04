@@ -83,6 +83,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (!firstKill)
         {
+            firstKill = true;
             CustomerSystem.instance.StartNextWave();            
         }
     }
