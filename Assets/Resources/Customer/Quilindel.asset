@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6e06cc8394119440b037992f258000c, type: 3}
-  m_Name: Deb
+  m_Name: Quilindel
   m_EditorClassIdentifier: 
-  customerName: Deb
-  customerSprite: {fileID: -307138052, guid: f663868f842864f47b5a7679ddef0544, type: 3}
+  customerName: Quilindel
+  customerSprite: {fileID: 1251341306, guid: 85dcfc74c1a393741a7c407783fa5ad4, type: 3}
+  customerMoods:
+  - {fileID: 1251341306, guid: 85dcfc74c1a393741a7c407783fa5ad4, type: 3}
+  - {fileID: 518724557, guid: bcb58112059befd498876a6a08fda192, type: 3}
+  - {fileID: -651835693, guid: 85dcfc74c1a393741a7c407783fa5ad4, type: 3}
   patienceMax: 100
-  patienceRate: 0
+  patienceRate: 1

@@ -16,6 +16,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 12020b0c2265cfb4db57ba52185d63cd, type: 2}
   - {fileID: 11400000, guid: 009cbfc9610a0e94f8d1dc73ed41eed5, type: 2}
   - {fileID: 11400000, guid: 4bd22fd1e018b5044a4c4bef7172e98b, type: 2}
-  morningCustomers: []
-  lunchCustomers: []
-  dinnerCustomers: []
+  - {fileID: 11400000, guid: 218f5151eec40574a8a8715a774755c8, type: 2}
+  theKing:
+  - {fileID: 11400000, guid: e7a79cfb4203c8948bda02e40a77b4e1, type: 2}
