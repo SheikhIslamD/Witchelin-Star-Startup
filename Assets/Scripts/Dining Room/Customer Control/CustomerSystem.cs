@@ -23,7 +23,7 @@ public class CustomerSystem : MonoBehaviour
         Debug.Log(waves.Length + " Waves.");
     }
 
-    void update()
+    void Update()
     {
         if (playerReviewHealth <= 0)
         {
