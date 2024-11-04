@@ -7,6 +7,8 @@ public class CustomerSystem : MonoBehaviour
     public int waveCount = 0;
     public int playerReviewHealth = 3;
 
+    public bool everoneSpawned = false;
+
     public static CustomerSystem instance;
     // Need to spawn a customer and have them place an order
     void Awake()
@@ -49,7 +51,11 @@ public class CustomerSystem : MonoBehaviour
         {
             GetCustomer.instance.spawnCustomer();
             yield return new WaitForSeconds(10);
-        }
-
+            if (i == custCount)
+            {
+                everoneSpawned = true;
+            }
+            Debug.Log("Has everyone spawned?" + everoneSpawned);
+        }        
     }
 }
