@@ -132,6 +132,7 @@ public class Cooking : MonoBehaviour
         if (!PlayerHands.instance.handsFull)
         {
             StopCooking();
+            whatsCooking.transform.localScale = new Vector3(0.85f, 0.85f, 0.85f);
             PlayerHands.instance.PickUp(whatsCooking);
             whatsCooking = null;
             Pickup.SetActive(false);
