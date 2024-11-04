@@ -32,6 +32,10 @@ public class Cooking : MonoBehaviour
     public Slider timeSlider;
     public Image timeSliderColor;
 
+    public Sprite blueBar;
+    public Sprite greenBar;
+    public Sprite redBar;
+
     //for making this a singleton
     public static Cooking instance;
     void Awake()
@@ -103,21 +107,21 @@ public class Cooking : MonoBehaviour
             {
                 whatsCooking.GetComponent<Ingredient>().cookState = 0;
                 whatsCooking.GetComponent<Ingredient>().CookUpdate(0);
-                timeSliderColor.color = Color.red;
+                timeSliderColor.sprite = blueBar;
             }
             //making the food item take on the proper cook state, if higher than min but below max then it's perfectly cooked
             if (cookTime >= whatsCooking.GetComponent<Ingredient>().cookMin && cookTime <= whatsCooking.GetComponent<Ingredient>().cookMax)
             {
                 whatsCooking.GetComponent<Ingredient>().cookState = 1;
                 whatsCooking.GetComponent<Ingredient>().CookUpdate(1);
-                timeSliderColor.color = Color.green;
+                timeSliderColor.sprite = greenBar;
             }
             //make it burnt if it goes to max cooktime and make currentlycooking off
             if (cookTime > whatsCooking.GetComponent<Ingredient>().cookMax)
             {
                 whatsCooking.GetComponent<Ingredient>().cookState = 2;
                 whatsCooking.GetComponent<Ingredient>().CookUpdate(2);
-                timeSliderColor.color = Color.black;
+                timeSliderColor.sprite = redBar;
                 StopCooking();
             }
         }
