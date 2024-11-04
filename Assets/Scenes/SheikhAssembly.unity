@@ -17469,6 +17469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves: []
+  waveCount: 0
 --- !u!114 &1832265730
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,6 +21,6 @@ MonoBehaviour:
   cookMethod: 2
   dishSprite: {fileID: 21300000, guid: 25873f74370b97f48abf9a6705d9d7ad, type: 3}
   resultSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 9b98da0f057c017489bef3de7c5b3932, type: 3}
+  - {fileID: 21300000, guid: 25873f74370b97f48abf9a6705d9d7ad, type: 3}
+  - {fileID: 21300000, guid: 3d8f1acaab7ec3744b899683c10684ec, type: 3}
