@@ -19,5 +19,5 @@ MonoBehaviour:
   proteinSprite: {fileID: 0}
   dishName: Gelatinous Casserole
   cookMethod: 0
-  dishSprite: {fileID: 0}
+  dishSprite: {fileID: 21300000, guid: 75541774d01d8a044b352bb0cc1b5bde, type: 3}
   resultSprites: []

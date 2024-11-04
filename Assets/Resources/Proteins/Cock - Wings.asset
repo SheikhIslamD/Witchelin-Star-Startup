@@ -19,8 +19,8 @@ MonoBehaviour:
   proteinSprite: {fileID: 0}
   dishName: Wings
   cookMethod: 2
-  dishSprite: {fileID: 21300000, guid: 98ce594139b65754ab49ca8083be1607, type: 3}
+  dishSprite: {fileID: 21300000, guid: 165b6d812e86a2849916f30a1b4daaad, type: 3}
   resultSprites:
   - {fileID: 0}
-  - {fileID: 21300000, guid: 98ce594139b65754ab49ca8083be1607, type: 3}
+  - {fileID: 21300000, guid: 165b6d812e86a2849916f30a1b4daaad, type: 3}
   - {fileID: 0}
