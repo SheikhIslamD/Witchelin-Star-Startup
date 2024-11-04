@@ -21,8 +21,15 @@ public class Menus : MonoBehaviour
 
     InputAction pauseKey;
 
+    public static Menus instance;
     void Awake()
     {
+        //for making this a singleton
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         credits.enabled = false;
         pauseKey = InputSystem.actions.FindAction("Pause");
         PauseGame();
@@ -46,7 +53,6 @@ public class Menus : MonoBehaviour
     public void MainMenu()
     {
         mainMenu.enabled = true;
-        PauseGame();
     }
 
     public void Retry()

@@ -19,8 +19,8 @@ MonoBehaviour:
   proteinSprite: {fileID: 0}
   dishName: Rotisserie
   cookMethod: 0
-  dishSprite: {fileID: 21300000, guid: 50a5b81ed81df0347983fcdf9733739d, type: 3}
+  dishSprite: {fileID: 21300000, guid: 68db5083897bbae4fabb4b042b238a89, type: 3}
   resultSprites:
   - {fileID: 0}
-  - {fileID: 21300000, guid: 50a5b81ed81df0347983fcdf9733739d, type: 3}
+  - {fileID: 21300000, guid: 68db5083897bbae4fabb4b042b238a89, type: 3}
   - {fileID: 0}

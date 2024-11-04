@@ -15,16 +15,16 @@ public class Ingredient : MonoBehaviour
     public int cookState = 0;
 
     public Sprite proteinSprite;
-
-    public Sprite[] resultSprites;
     [Space(10)]
 
     [Header("Dish Information")]
     public string dishName;
     public int cookMethod;
-    public bool isPlated;
     public Sprite dishSprite;
 
+    public Sprite[] resultSprites;
+
+    public bool isPlated;
     public Sprite[] cockDishSprites;
     public Sprite[] slimeDishSprites;
     public Sprite[] beholderDishSprites;
@@ -33,29 +33,63 @@ public class Ingredient : MonoBehaviour
 
     void Start()
     {
+        //assign all values from scriptable object
         IngredientName = protein.IngredientName;
         cookMin = protein.cookMin;
         cookMax = protein.cookMax;
         cookState = protein.cookState;
         proteinSprite = protein.proteinSprite;
-        resultSprites = protein.resultSprites;
 
         dishName = protein.dishName;
         cookMethod = protein.cookMethod;
         dishSprite = protein.dishSprite;
 
+        resultSprites = protein.resultSprites;
+
 
         image = GetComponent<Image>();
+        image.sprite = proteinSprite;
     }
 
-    public void CookUpdate()
+/*    public void IngredientUpdate()
     {
-        image.sprite = resultSprites[cookState];
-        
+        IngredientName = protein.IngredientName;
+        cookMin = protein.cookMin;
+        cookMax = protein.cookMax;
+        cookState = protein.cookState;
+        proteinSprite = protein.proteinSprite;
+
+        dishName = protein.dishName;
+        cookMethod = protein.cookMethod;
+        dishSprite = protein.dishSprite;
+
+        resultSprites = protein.resultSprites;
+    }*/
+
+    public void CookUpdate(int cookState)
+    {
+        //image.sprite = resultSprites[cookState];
+        switch (cookState) 
+        {
+            case 0: //color FFA3BD //color 9D4B2C //color 
+                image.color = new Color32(255, 163, 189, 255);
+                Debug.Log("raw color assigned");
+                break;
+            case 1: //color FFA3BD //color 9D4B2C //color 
+                image.color = new Color32(157, 75, 44, 255);
+                Debug.Log("cooked color assigned");
+                break;
+            case 2: //color FFA3BD //color 9D4B2C //color 
+                image.color = new Color32(31, 20, 16, 255);
+                Debug.Log("burnt color assigned");
+                break;
+        }
     }
 
     public void PlatingUpdate()
     {
+        image.color = Color.white;
+        isPlated = true;
         //make a burnt dish example to show serving it displeases customers?
         if (cookState == 2)
         {

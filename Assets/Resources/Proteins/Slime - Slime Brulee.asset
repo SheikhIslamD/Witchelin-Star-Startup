@@ -19,5 +19,5 @@ MonoBehaviour:
   proteinSprite: {fileID: 0}
   dishName: Slime Brulee
   cookMethod: 1
-  dishSprite: {fileID: 0}
+  dishSprite: {fileID: 21300000, guid: 5a4a0ce64fb66534298354b493707695, type: 3}
   resultSprites: []
