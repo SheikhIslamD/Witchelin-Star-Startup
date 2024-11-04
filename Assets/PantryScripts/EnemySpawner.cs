@@ -62,21 +62,21 @@ public class EnemySpawner : MonoBehaviour
                 if (!slimeGate)
                 {
                     slimeGate = true;
-                    AssignUnlocks.instance.AssignDishUnlocks(spawnPrefab.name);
+                    AssignUnlocks.instance.AssignDishUnlocks(monstername);
                 }
                 break;
             case "Cockatrice":
             if (!cockGate)
                 {
                     cockGate = true;
-                    AssignUnlocks.instance.AssignDishUnlocks(spawnPrefab.name);
+                    AssignUnlocks.instance.AssignDishUnlocks(monstername);
                 }
                 break;
             case "Beholder":
             if (!beholderGate)
                 {
                     beholderGate = true;
-                    AssignUnlocks.instance.AssignDishUnlocks(spawnPrefab.name);
+                    AssignUnlocks.instance.AssignDishUnlocks(monstername);
                 }
                 break;
         }

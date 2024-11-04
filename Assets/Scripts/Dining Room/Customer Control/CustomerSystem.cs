@@ -5,6 +5,7 @@ public class CustomerSystem : MonoBehaviour
 {
     public Wave[] waves = new Wave[2];
     public int waveCount = 0;
+    public int waveSpawnCount = 0;
     public int playerReviewHealth = 3;
 
     public bool everoneSpawned = false;
@@ -46,12 +47,13 @@ public class CustomerSystem : MonoBehaviour
 
     IEnumerator WaveSpawn(int custCount)
     {
+        waveSpawnCount = custCount;
         Debug.Log("CoRoutine Started. Will loop: " + custCount + " time(s)");
         for (int i = 0; i < custCount; i++)
         {
             GetCustomer.instance.spawnCustomer();
-            yield return new WaitForSeconds(10);
-            if (i == custCount)
+            yield return new WaitForSeconds(15);
+            if (i == custCount - 1)
             {
                 everoneSpawned = true;
             }

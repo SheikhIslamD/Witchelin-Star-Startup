@@ -101,8 +101,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerNumber: 0
+  customerSprite: {fileID: 0}
+  sr: {fileID: 8236352343048034150}
+  customerMood:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   customerOrder: {fileID: 0}
+  customerReview: 
   patienceMax: 0
   patienceRate: 0
   patienceCurrent: 0
-  patienceMeter: {fileID: 0}
