@@ -12043,7 +12043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  maxHealth: 30
+  maxHealth: 40
   hpSlider: {fileID: 1625046635}
 --- !u!114 &212045532
 MonoBehaviour:
@@ -20614,7 +20614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 15
-  maxHealth: 30
+  maxHealth: 40
   hpSlider: {fileID: 222953143}
 --- !u!114 &450713829
 MonoBehaviour:
@@ -56607,7 +56607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 12
-  maxHealth: 30
+  maxHealth: 40
   hpSlider: {fileID: 1846628970}
 --- !u!114 &1618448272
 MonoBehaviour:

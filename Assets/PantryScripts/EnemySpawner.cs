@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject spawnPrefab;
     [SerializeField] private float spawnInterval = 3.5f;
 
-    private static bool firstKill = false;
+    private bool firstKill = false;
     private bool slimeGate, cockGate, beholderGate = false;
 
     public float slimeTimer;
@@ -26,7 +26,27 @@ public class EnemySpawner : MonoBehaviour
     public GameObject slimeBox;
     public GameObject beholderBox;
     public GameObject cockBox;
-        
+
+    public static EnemySpawner instance;
+    void Awake()
+    {
+        firstKill = false;
+        //for making this a singleton
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
+    public void KillMonsters()
+    {
+        Debug.Log("Main Active, destroy current");
+        GameObject[] Monsters = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject Monster in Monsters)
+        {
+            Destroy(Monster);
+        }
+    }
     public void SpawnEnemyCountdownBegin(string monster)
     {
         switch (monster)
@@ -43,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void Start()
+    public void StartSpawn()
     {
         StartCoroutine(spawnEnemy(slimeTimer, slimePrefab, slimeTransform));
         StartCoroutine(spawnEnemy(beholderTimer, beholderPrefab, beholderTransform));

@@ -44,15 +44,12 @@ public class Menus : MonoBehaviour
             Debug.Log("pressed pause key");
         }
     }    
-    
-    /*public void UpdateScoreText()
-    {
-        playerScoreText.text = "Comfy Cats: " + ScoreTracker.playerScore;
-        enemyScoreText.text = "Dingus Dogs: " + ScoreTracker.enemyScore;
-    }*/
+
     public void MainMenu()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         mainMenu.enabled = true;
+        CustomerSystem.instance.waveCount = 0;
     }
 
     public void Retry()
@@ -69,7 +66,9 @@ public class Menus : MonoBehaviour
 
     public void StartGame()
     {
+        EnemySpawner.instance.StartSpawn();
         mainMenu.enabled = false;
+        CustomerSystem.instance.waveCount = 0;  
         Resume();
     }
 
