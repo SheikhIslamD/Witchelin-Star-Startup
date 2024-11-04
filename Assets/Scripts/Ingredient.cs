@@ -93,7 +93,7 @@ public class Ingredient : MonoBehaviour
         //make a burnt dish example to show serving it displeases customers?
         if (cookState == 2)
         {
-            
+            image.color = Color.black;
         }
 
         //only assign dish details if it is perfectly cooked
