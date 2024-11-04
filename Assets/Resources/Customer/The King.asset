@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: The King
   m_EditorClassIdentifier: 
   customerName: The King
-  customerSprite: {fileID: -1467914175, guid: 05c728b0907ce0c4d94e308d5e3ecc01, type: 3}
+  customerSprite: {fileID: -1876307252, guid: 05c728b0907ce0c4d94e308d5e3ecc01, type: 3}
   customerMoods:
   - {fileID: -1467914175, guid: 05c728b0907ce0c4d94e308d5e3ecc01, type: 3}
   - {fileID: -1876307252, guid: 05c728b0907ce0c4d94e308d5e3ecc01, type: 3}

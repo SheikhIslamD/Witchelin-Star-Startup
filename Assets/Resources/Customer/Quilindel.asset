@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Quilindel
   m_EditorClassIdentifier: 
   customerName: Quilindel
-  customerSprite: {fileID: 2092232972, guid: bcb58112059befd498876a6a08fda192, type: 3}
+  customerSprite: {fileID: 518724557, guid: bcb58112059befd498876a6a08fda192, type: 3}
   customerMoods:
   - {fileID: 2092232972, guid: bcb58112059befd498876a6a08fda192, type: 3}
   - {fileID: 518724557, guid: bcb58112059befd498876a6a08fda192, type: 3}

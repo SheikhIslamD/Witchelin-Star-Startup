@@ -5,7 +5,7 @@ public class CustomerControl : MonoBehaviour
     [Header("Customer Identifiers")]
     public int customerNumber;
     public Sprite customerSprite;
-    [SerializeField] SpriteRenderer sr;
+    public SpriteRenderer sr;
     public Sprite[] customerMood = new Sprite[3]; 
     [Space(10)]
 
@@ -50,18 +50,13 @@ public class CustomerControl : MonoBehaviour
     void PatienceManager()
     {        
         patienceCurrent -= patienceRate * Time.deltaTime;
-        if (patienceCurrent > patienceMax / 2)
+        
+        if (patienceCurrent <= patienceMax / 2)
         {
-            customerSprite = customerMood[1];
-            sr.sprite = customerSprite;
-        }
-        else if (patienceCurrent <= patienceMax / 2)
-        {
-            customerSprite = customerMood[0];
-            sr.sprite = customerSprite;
-
-            if (patienceMax <= patienceMax / 4)
+            Debug.Log("Under Half");
+            if (patienceCurrent <= patienceMax / 3)
             {
+                Debug.Log("Get Mad");
                 customerSprite = customerMood[2];
                 sr.sprite = customerSprite;
 
@@ -130,7 +125,6 @@ public class CustomerControl : MonoBehaviour
         {
             if(given.dishName != customerOrder.dishName)
             {
-                //
                 Debug.Log("You gave me the wrong dish!");
                 customerReview = "You gave me the wrong dish!";
                 ChunkPatience();
@@ -147,7 +141,7 @@ public class CustomerControl : MonoBehaviour
                 case 1:
                     Debug.Log("This is Perfect!");
                     customerReview = "This is Perfect!";
-                    sr.sprite = customerMood[1];
+                    sr.sprite = customerMood[0];
                     // IF king win
                     if (gameObject.name == "The King")
                     {

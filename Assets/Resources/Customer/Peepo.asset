@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Peepo
   m_EditorClassIdentifier: 
   customerName: 
-  customerSprite: {fileID: 1251341306, guid: 85dcfc74c1a393741a7c407783fa5ad4, type: 3}
+  customerSprite: {fileID: -591464798, guid: 85dcfc74c1a393741a7c407783fa5ad4, type: 3}
   customerMoods:
   - {fileID: 1251341306, guid: 85dcfc74c1a393741a7c407783fa5ad4, type: 3}
   - {fileID: -591464798, guid: 85dcfc74c1a393741a7c407783fa5ad4, type: 3}

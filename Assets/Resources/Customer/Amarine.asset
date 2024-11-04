@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Amarine
   m_EditorClassIdentifier: 
   customerName: Amarine
-  customerSprite: {fileID: -448313749, guid: 5ccfc17fb00c678409ba0a329d97a6e5, type: 3}
+  customerSprite: {fileID: -329384177, guid: 5ccfc17fb00c678409ba0a329d97a6e5, type: 3}
   customerMoods:
   - {fileID: -448313749, guid: 5ccfc17fb00c678409ba0a329d97a6e5, type: 3}
   - {fileID: -329384177, guid: 5ccfc17fb00c678409ba0a329d97a6e5, type: 3}

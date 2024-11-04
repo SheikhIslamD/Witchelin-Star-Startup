@@ -147,6 +147,7 @@ public class DiningManager : MonoBehaviour
         {
             CounterManager.instance.ReviewOrder();
             yield return new WaitForSeconds(3);
+            pickupScript.sr.sprite = pickupScript.customerMood[0];
 
             //avaliableTables.Add(takenTables[ticketNumber]);
             //takenTables.Remove(takenTables.ElementAt(ticketNumber));
@@ -164,6 +165,7 @@ public class DiningManager : MonoBehaviour
         {
             CounterManager.instance.ReviewOrder();
             yield return new WaitForSeconds(3);
+            pickupScript.sr.sprite = pickupScript.customerMood[0];
 
 
             tables[ticketNumber] = pickup;
