@@ -149,11 +149,6 @@ public class CustomerControl : MonoBehaviour
                         Phases.instance.FinishGame("win");
                     }
 
-                    if (CustomerSystem.instance.everoneSpawned && DiningManager.instance.customersLeft == 1)
-                    {
-                        CustomerSystem.instance.StartNextWave();
-                    }
-
                     return true;
                 case 2:
                     Debug.Log("This was cooked way too long!");

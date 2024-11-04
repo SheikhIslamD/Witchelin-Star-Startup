@@ -160,6 +160,11 @@ public class DiningManager : MonoBehaviour
             Destroy(tables.ElementAt(ticketNumber));
 
             customersLeft--;
+
+            if (CustomerSystem.instance.everoneSpawned && DiningManager.instance.customersLeft <= 0)
+            {
+                CustomerSystem.instance.StartNextWave();
+            }
         }
         else
         {
