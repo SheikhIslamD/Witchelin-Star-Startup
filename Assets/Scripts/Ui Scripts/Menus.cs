@@ -68,7 +68,7 @@ public class Menus : MonoBehaviour
     {
         EnemySpawner.instance.StartSpawn();
         mainMenu.enabled = false;
-        CustomerSystem.instance.waveCount = 0;  
+        CustomerSystem.instance.waveCount = 0;
         Resume();
     }
 

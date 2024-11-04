@@ -37,16 +37,6 @@ public class EnemySpawner : MonoBehaviour
             instance = this;
         }
     }
-
-    public void KillMonsters()
-    {
-        Debug.Log("Main Active, destroy current");
-        GameObject[] Monsters = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject Monster in Monsters)
-        {
-            Destroy(Monster);
-        }
-    }
     public void SpawnEnemyCountdownBegin(string monster)
     {
         switch (monster)
