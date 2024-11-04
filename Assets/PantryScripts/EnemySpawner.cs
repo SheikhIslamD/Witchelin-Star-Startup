@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -9,28 +10,53 @@ public class EnemySpawner : MonoBehaviour
 
     private static bool firstKill = false;
     private bool slimeGate, cockGate, beholderGate = false;
+
+    public float slimeTimer;
+    public float beholderTimer;
+    public float cockTimer;
+
+    public GameObject slimePrefab;
+    public GameObject beholderPrefab;
+    public GameObject cockPrefab;
+
+    public Transform slimeTransform;
+    public Transform beholderTransform;
+    public Transform cockTransform;
         
-    public void SpawnEnemyCountdownBegin()
+    public void SpawnEnemyCountdownBegin(string monster)
     {
-        StartCoroutine(spawnEnemy(spawnInterval, spawnPrefab));
+        switch (monster)
+        {
+            case "Slime":
+                StartCoroutine(spawnEnemy(slimeTimer, slimePrefab, slimeTransform));
+                break;
+            case "Beholder":
+                StartCoroutine(spawnEnemy(beholderTimer, beholderPrefab, beholderTransform));
+                break;
+            case "Cockatrice":
+                StartCoroutine(spawnEnemy(cockTimer, cockPrefab, cockTransform));
+                break;
+        }
     }
 
     public void Start()
     {
-        StartCoroutine(spawnEnemy(spawnInterval, spawnPrefab));
+        StartCoroutine(spawnEnemy(slimeTimer, slimePrefab, slimeTransform));
+        StartCoroutine(spawnEnemy(beholderTimer, beholderPrefab, beholderTransform));
+        StartCoroutine(spawnEnemy(cockTimer, cockPrefab, cockTransform));
     }
 
     //Enemy Spawn Based on Location and Time
-    private IEnumerator spawnEnemy(float interval, GameObject enemy)
+    private IEnumerator spawnEnemy(float interval, GameObject enemy, Transform transform)
     {
-        yield return new WaitForSeconds(spawnInterval);
-        GameObject newEnemy = Instantiate(enemy, this.gameObject.transform.position, Quaternion.identity);        
+        yield return new WaitForSeconds(interval);
+        GameObject newEnemy = Instantiate(enemy, transform.position, Quaternion.identity);        
     }
 
-    public void CheckSpawns()
+    public void CheckSpawns(string monstername)
     {     
 
-        switch(spawnPrefab.name)
+        switch(monstername)
         {
             case "Slime":
                 if (!slimeGate)
