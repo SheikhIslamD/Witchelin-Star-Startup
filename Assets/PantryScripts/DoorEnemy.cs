@@ -52,8 +52,8 @@ public class DoorEnemy : MonoBehaviour
 
         if (health <= 0)
         {
-            es.SpawnEnemyCountdownBegin();
-            es.CheckSpawns();
+            es.SpawnEnemyCountdownBegin(monster);
+            es.CheckSpawns(monster);
             Destroy(gameObject);            
         }
     }
