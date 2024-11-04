@@ -45,7 +45,7 @@ public class TrashNPlate : MonoBehaviour
         trashedfood.transform.SetParent(trashTransform.transform, true);
         float random = Random.Range(-10, 10);
         trashedfood.transform.position = new Vector3 (trashTransform.transform.position.x + random, trashTransform.transform.position.y + random, trashTransform.transform.position.z + random);
-        trashedfood.transform.localScale = new Vector3 (0.65f, 0.65f, 0.65f);
+        trashedfood.transform.localScale = new Vector3 (0.1f, 0.1f, 0.1f);
 
         Debug.Log("Item trashed");
     }

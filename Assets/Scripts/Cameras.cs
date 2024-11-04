@@ -48,8 +48,8 @@ public class Cameras : MonoBehaviour
         CanvasGroupOff(diningCanvas);
         CanvasGroupOff(everythingCanvas);
 
-        //start with everything view
-        EverythingCam();
+        //start with everything view (nope)
+        PantryCam();
     }
 
     //all inputs correlate to function to activate a single cam and disable all others

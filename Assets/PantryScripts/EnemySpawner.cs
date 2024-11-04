@@ -22,6 +22,10 @@ public class EnemySpawner : MonoBehaviour
     public Transform slimeTransform;
     public Transform beholderTransform;
     public Transform cockTransform;
+
+    public GameObject slimeBox;
+    public GameObject beholderBox;
+    public GameObject cockBox;
         
     public void SpawnEnemyCountdownBegin(string monster)
     {
@@ -44,6 +48,10 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(spawnEnemy(slimeTimer, slimePrefab, slimeTransform));
         StartCoroutine(spawnEnemy(beholderTimer, beholderPrefab, beholderTransform));
         StartCoroutine(spawnEnemy(cockTimer, cockPrefab, cockTransform));
+
+        slimeBox.SetActive(false);
+        beholderBox.SetActive(false);
+        cockBox.SetActive(false);
     }
 
     //Enemy Spawn Based on Location and Time
@@ -63,6 +71,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     slimeGate = true;
                     AssignUnlocks.instance.AssignDishUnlocks(monstername);
+                    slimeBox.SetActive(true);
                 }
                 break;
             case "Cockatrice":
@@ -70,6 +79,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     cockGate = true;
                     AssignUnlocks.instance.AssignDishUnlocks(monstername);
+                    cockBox.SetActive(true);
                 }
                 break;
             case "Beholder":
@@ -77,6 +87,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     beholderGate = true;
                     AssignUnlocks.instance.AssignDishUnlocks(monstername);
+                    beholderBox.SetActive(true);
                 }
                 break;
         }
