@@ -162,7 +162,7 @@ public class DiningManager : MonoBehaviour
 
             tables[ticketNumber] = pickup;
             pickup = null;
-
+            
             Destroy(tables.ElementAt(ticketNumber));
         }
         else
