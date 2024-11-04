@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6649981923478332909}
   - component: {fileID: 2305217936591464733}
-  - component: {fileID: 2819673205834150691}
   - component: {fileID: 6534265534329897869}
   - component: {fileID: 7226095813945114088}
   m_Layer: 0
@@ -50,23 +49,7 @@ MonoBehaviour:
   health: 3
   maxHealth: 3
   attkInterval: 5
-  damageDoor: {fileID: 2819673205834150691}
-  ticks: 1
   monster: None
---- !u!114 &2819673205834150691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3243127381813367673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 578cf636719fa424e88e3a7d55df27e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthDisplay: {fileID: 0}
-  dmgOverTimeTick: 00000000
 --- !u!212 &6534265534329897869
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -64,6 +64,7 @@ public class DoorEnemy : MonoBehaviour
         StartCoroutine(Damage(interval));
         Debug.Log("RoutineRepeat");
         doorHealth.health -= 1;
+        doorHealth.hpUpdate();
     }
 
 
