@@ -86,13 +86,7 @@ public class CustomerControl : MonoBehaviour
     }
 
     void ChunkPatience()
-    {
-        if (gameObject.name == "The King")
-        {
-            //End Game
-            Phases.instance.FinishGame("lose");
-        }
-
+    {      
         patienceCurrent -= patienceMax / 5;
         sr.sprite = customerMood[2];
     }
@@ -142,18 +136,6 @@ public class CustomerControl : MonoBehaviour
                     Debug.Log("This is Perfect!");
                     customerReview = "This is Perfect!";
                     sr.sprite = customerMood[0];
-                    // IF king win
-                    if (gameObject.name == "The King")
-                    {
-                        //End Game
-                        Phases.instance.FinishGame("win");
-                    }
-
-                    if (CustomerSystem.instance.everoneSpawned && DiningManager.instance.customersLeft == 1)
-                    {
-                        CustomerSystem.instance.StartNextWave();
-                    }
-
                     return true;
                 case 2:
                     Debug.Log("This was cooked way too long!");

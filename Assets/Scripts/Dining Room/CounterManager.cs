@@ -10,7 +10,7 @@ public class CounterManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI orderDescription;
     [SerializeField] Button takeOrderButton;
 
-    bool wait = false;
+    public bool wait = false;
 
     public static CounterManager instance;
     void Awake()
@@ -22,7 +22,7 @@ public class CounterManager : MonoBehaviour
     }
     public void TakeOrder()
     {
-        if (!wait)
+        if (!wait && !DiningManager.instance.reviewing)
         {
             wait = true;
             takeOrderButton.enabled = true;
@@ -37,7 +37,7 @@ public class CounterManager : MonoBehaviour
     }
 
     IEnumerator TakeASeat()
-    {
+    {        
         yield return new WaitForSeconds(3f);
         DiningManager.instance.SitDown();
         TicketManager.instance.TicketToLine();

@@ -89,7 +89,10 @@ public class TicketControl : MonoBehaviour
 
     public void PresentToGuest()
     {
-        DiningManager.instance.PickupOrder(ticketNumber);
+        if (!CounterManager.instance.wait)
+        {
+            DiningManager.instance.PickupOrder(ticketNumber);
+        }
     }
 
     void OnDestroy()
